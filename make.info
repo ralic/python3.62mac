@@ -1,0 +1,2 @@
+ASAN_OPTIONS=detect_leaks=0:detect_odr_violation=0
+./configure --enable-ipv6 --enable-profiling --enable-optimizations --enable-loadable-sqlite-extensions --with-address-sanitizer --with-system-ffi --with-system-expat --with-system-libmpdec --with-threads --with-valgrind --with-lto --with-assertions --with-pydebug --enable-shared --without-gcc
