@@ -56,7 +56,7 @@ gmake: *** [Makefile:464: profile-opt] Error 2
 ### Above issue fixed after modified Objects/bytearrayobject.c ### 
 
 const char *__asan_default_options() {
-  return "verbosity=1:detect_odr_violation=0";
+  return "verbosity=0:detect_odr_violation=0";
 }
 
 #### 
@@ -218,78 +218,84 @@ Got:
    9 of  22 in test.test_doctest.test_CLI
 ***Test Failed*** 9 failures.
 0:00:18 load avg: 2.96 [  9/405] test_doctest2 -- test_doctest failed
-0:00:18 load avg: 2.96 [ 10/405] test_support
-0:00:19 load avg: 2.96 [ 11/405] test___all__
-==49354==T1: stack [0x7000020ea000,0x70000216a000) size 0x80000; local=0x700002169320
-==49354==T1 TSDDtor
-==49354==T1 exited
-0:00:33 load avg: 2.53 [ 12/405] test___future__
-0:00:33 load avg: 2.53 [ 13/405] test__locale
-0:00:34 load avg: 2.53 [ 14/405] test__opcode
-0:00:34 load avg: 2.53 [ 15/405] test__osx_support
-0:00:34 load avg: 2.53 [ 16/405] test_abc
-0:00:35 load avg: 2.53 [ 17/405] test_abstract_numbers
-0:00:35 load avg: 2.53 [ 18/405] test_aifc
-0:00:36 load avg: 2.53 [ 19/405] test_argparse -- test_aifc failed
-0:00:46 load avg: 2.29 [ 20/405] test_array
-0:00:50 load avg: 2.27 [ 21/405] test_asdl_parser
-0:00:51 load avg: 2.27 [ 22/405] test_ast
-0:00:58 load avg: 2.30 [ 23/405] test_asyncgen
-0:00:59 load avg: 2.30 [ 24/405] test_asynchat
-==49354==T2: stack [0x7000020ea000,0x7000025ea000) size 0x500000; local=0x7000025e9eb0
-==49354==T2 TSDDtor
-==49354==T2 exited
-==49354==T3: stack [0x7000020ea000,0x7000025ea000) size 0x500000; local=0x7000025e9eb0
-==49354==T3 TSDDtor
-==49354==T3 exited
-==49354==T4: stack [0x7000020ea000,0x7000025ea000) size 0x500000; local=0x7000025e9eb0
-==49354==T4 TSDDtor
-==49354==T4 exited
-==49354==T5: stack [0x7000020ea000,0x7000025ea000) size 0x500000; local=0x7000025e9eb0
-==49354==T5 TSDDtor
-==49354==T5 exited
-==49354==T6: stack [0x7000020ea000,0x7000025ea000) size 0x500000; local=0x7000025e9eb0
-==49354==T6 TSDDtor
-==49354==T6 exited
-==49354==T7: stack [0x7000020ea000,0x7000025ea000) size 0x500000; local=0x7000025e9eb0
-==49354==T7 TSDDtor
-==49354==T7 exited
-==49354==T8: stack [0x7000020ea000,0x7000025ea000) size 0x500000; local=0x7000025e9eb0
-==49354==T8 TSDDtor
-==49354==T8 exited
-==49354==T9: stack [0x7000020ea000,0x7000025ea000) size 0x500000; local=0x7000025e9eb0
-==49354==T9 TSDDtor
-==49354==T9 exited
-==49354==T10: stack [0x7000020ea000,0x7000025ea000) size 0x500000; local=0x7000025e9eb0
-==49354==T10 TSDDtor
-==49354==T10 exited
-==49354==T11: stack [0x7000020ea000,0x7000025ea000) size 0x500000; local=0x7000025e9eb0
-==49354==T11 TSDDtor
-==49354==T11 exited
-==49354==T12: stack [0x7000020ea000,0x7000025ea000) size 0x500000; local=0x7000025e9eb0
-==49354==T12 TSDDtor
-==49354==T12 exited
-==49354==T13: stack [0x7000020ea000,0x7000025ea000) size 0x500000; local=0x7000025e9eb0
-==49354==T13 TSDDtor
-==49354==T13 exited
-==49354==T14: stack [0x7000020ea000,0x7000025ea000) size 0x500000; local=0x7000025e9eb0
-==49354==T14 TSDDtor
-==49354==T14 exited
-==49354==T15: stack [0x7000020ea000,0x7000025ea000) size 0x500000; local=0x7000025e9eb0
-==49354==T15 TSDDtor
-==49354==T15 exited
-==49354==T16: stack [0x7000020ea000,0x7000025ea000) size 0x500000; local=0x7000025e9eb0
-==49354==T16 TSDDtor
-==49354==T16 exited
-==49354==T17: stack [0x7000020ea000,0x7000025ea000) size 0x500000; local=0x7000025e9eb0
-==49354==T17 TSDDtor
 0:01:59 load avg: 2.15 [ 26/405] test_asyncore -- test_asyncio failed in 58 sec
 0:02:03 load avg: 2.15 [ 31/405] test_baseexception -- test_base64 failed
 0:02:41 load avg: 1.63 [ 40/405] test_bufio -- test_buffer failed in 37 sec
 0:04:16 load avg: 1.92 [ 46/405] test_cgi -- test_capi failed in 39 sec
 0:04:20 load avg: 2.00 [ 51/405] test_cmd -- test_cmath failed
-
-
 0:13:04 load avg: 1.77 [182/405] test_ioctl -- test_io failed in 1 min 10 sec
 0:15:46 load avg: 1.73 [200/405] test_longexp -- test_long failed
+0:05:44 load avg: 1.79 [ 75/405] test_complex -- test_compileall failed
+0:05:45 load avg: 1.79 [ 76/405] test_concurrent_futures -- test_complex failed
+0:07:06 load avg: 1.75 [ 77/405] test_configparser -- test_concurrent_futures failed in 1 min 20 sec
+0:07:19 load avg: 1.66 [ 89/405] test_datetime -- test_curses skipped (resource denied)
+0:07:55 load avg: 1.83 [101/405] test_dict_version -- test_devpoll skipped
+0:08:06 load avg: 1.78 [106/405] test_distutils
+/var/folders/x6/9znvyjk52k1drx1h8fl0b0cc0000gn/T/tmp4m__ybpp/deptargetmodule.c:7:2: error: "Unexpected target"
+#error "Unexpected target"
+ ^
+1 error generated.
+==66997==T350: stack [0x70000b0c8000,0x70000b5c8000) size 0x500000; local=0x70000b5c7eb0
+==66997==T350 TSDDtor
+==66997==T350 exited
+==66997==T351: stack [0x70000b0c8000,0x70000b5c8000) size 0x500000; local=0x70000b5c7eb0
+/var/folders/x6/9znvyjk52k1drx1h8fl0b0cc0000gn/T/tmp6dahpgw2/deptargetmodule.c:7:2: error: "Unexpected target"
+#error "Unexpected target"
+ ^
+1 error generated.
+0:09:50 load avg: 2.30 [125/405] test_fcntl -- test_faulthandler failed in 43 sec
+0:09:56 load avg: 2.20 [128/405] test_filecmp -- test_file_eintr failed
+0:10:13 load avg: 2.23 [138/405] test_frame -- test_fractions failed
+0:10:32 load avg: 2.33 [149/405] test_generator_stop -- test_gdb skipped
+0:10:35 load avg: 2.33 [154/405] test_getopt -- test_getargs2 failed
+0:12:41 load avg: 1.98 [182/405] test_ioctl -- test_io failed in 1 min 7 sec
+0:13:17 load avg: 2.01 [189/405] test_keyword -- test_json failed
+0:13:20 load avg: 2.17 [190/405] test_keywordonlyarg -- test_keyword failed
+0:15:19 load avg: 1.97 [200/405] test_longexp -- test_long failed
+0:15:53 load avg: 2.15 [208/405] test_memoryio -- test_math failed
+0:16:05 load avg: 2.20 [215/405] test_modulefinder -- test_module failed
+0:16:08 load avg: 2.27 [217/405] test_multibytecodec -- test_msilib skipped
+0:25:01 load avg: 2.03 [339/405] test_threading_local -- test_threading failed
+0:25:11 load avg: 1.94 [342/405] test_timeit -- test_time failed
+0:25:12 load avg: 1.94 [344/405] test_tix -- test_timeout skipped (resource denied)
+0:25:12 load avg: 1.94 [345/405] test_tk -- test_tix skipped (resource denied)
+0:25:13 load avg: 1.94 [346/405] test_tokenize -- test_tk skipped (resource denied)
+0:25:36 load avg: 2.05 [348/405] test_trace -- test_tools failed
+0:25:59 load avg: 1.97 [350/405] test_tracemalloc -- test_traceback failed
+0:26:08 load avg: 1.97 [352/405] test_ttk_textonly -- test_ttk_guionly skipped (resource denied)
+0:27:48 load avg: 1.52 [371/405] test_urllib_response -- test_urllib2net skipped (resource denied)
+0:27:49 load avg: 1.52 [373/405] test_urlparse -- test_urllibnet skipped (resource denied)
+0:29:11 load avg: 1.32 [384/405] test_wave -- test_warnings failed
+0:16:18 load avg: 2.07 [219/405] test_multiprocessing_forkserver -- test_multiprocessing_fork skipped
+0:16:19 load avg: 2.07 [220/405] test_multiprocessing_main_handling -- test_multiprocessing_forkserver skipped
+0:16:19 load avg: 2.07 [221/405] test_multiprocessing_spawn -- test_multiprocessing_main_handling skipped
+0:16:44 load avg: 1.93 [234/405] test_osx_env -- test_ossaudiodev skipped (resource denied)
+dyld: Library not loaded: /usr/local/Cellar/python3/3.6.2_1/lib/libpython3.6dm.dylib
+  Referenced from: /Users/dojo/Library/Caches/Homebrew/Python-3.6.2/python
+  Reason: image not found
+0:18:49 load avg: 1.86 [269/405] test_range -- test_random failed
+0:19:02 load avg: 1.65 [272/405] test_regrtest -- test_readline failed
+0:21:39 load avg: 1.57 [297/405] test_sndhdr -- test_smtpnet skipped (resource denied)
+/Users/dojo/Library/Caches/Homebrew/Python-3.6.2/Lib/test/test_socket.py:2103: RuntimeWarning: received malformed or improperly-truncated ancillary data
+  result = sock.recvmsg_into([buf], *args)
+  0:22:18 load avg: 1.77 [300/405] test_sort -- test_socketserver skipped (resource denied)
+0:22:25 load avg: 1.79 [303/405] test_sqlite -- test_spwd skipped
+0:22:25 load avg: 1.79 [304/405] test_ssl -- test_sqlite skipped
+0:23:01 load avg: 1.87 [308/405] test_strftime -- test_statistics failed
+0:22:56 load avg: 1.78 [305/405] test_startfile -- test_ssl failed in 30 sec
+0:22:56 load avg: 1.78 [306/405] test_stat -- test_startfile skipped
+0:23:01 load avg: 1.87 [308/405] test_strftime -- test_statistics failed
+0:23:16 load avg: 1.91 [315/405] test_structmembers -- test_struct failed
+0:23:18 load avg: 1.99 [319/405] test_sunau -- test_subprocess skipped
+0:23:21 load avg: 1.99 [323/405] test_symtable -- test_symbol failed
+0:30:30 load avg: 2.20 [389/405] test_winreg -- test_winconsoleio skipped
+0:30:31 load avg: 2.20 [390/405] test_winsound -- test_winreg skipped
+0:30:31 load avg: 2.20 [391/405] test_with -- test_winsound skipped (resource denied)
+0:30:32 load avg: 2.20 [392/405] test_wsgiref
+0:30:46 load avg: 2.16 [399/405] test_yield_from -- test_xmlrpc_net skipped (resource denied)
+*** WARNING: renaming "_sqlite3" since importing it failed: dlopen(build/lib.macosx-10.12.6-x86_64-3.6-pydebug/_sqlite3.cpython-36dm-darwin.so, 2): Symbol not found: _sqlite3_enable_load_extension
+  Referenced from: /Users/dojo/Library/Caches/Homebrew/Python-3.6.2/build/lib.macosx-10.12.6-x86_64-3.6-pydebug/_sqlite3.cpython-36dm-darwin.so
+  Expected in: flat namespace
+ in /Users/dojo/Library/Caches/Homebrew/Python-3.6.2/build/lib.macosx-10.12.6-x86_64-3.6-pydebug/_sqlite3.cpython-36dm-darwin.so
+
 
