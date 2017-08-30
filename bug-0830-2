@@ -1,0 +1,80 @@
+### Action Taken :
+1.Recompiled python3 using python3.
+2.Add sqlite3 include and lib
+
+### Bug Removed : 
+[  9/405] test_doctest2
+[ 26/405] test_asyncore
+[ 31/405] test_baseexception
+[ 46/405] test_cgi
+[ 51/405] test_cmd 
+[ 75/405] test_complex
+[ 77/405] test_configparser
+[ 89/405] test_datetime
+[128/405] test_filecmp
+
+### Bug found from test :
+0:04:15 load avg: 2.03 [ 40/405] test_bufio -- test_buffer failed in 45 sec
+0:09:22 load avg: 2.17 [ 76/405] test_concurrent_futures -- test_complex failed
+0:11:02 load avg: 2.33 [ 89/405] test_datetime -- test_curses skipped (resource denied)
+0:09:22 load avg: 2.17 [ 76/405] test_concurrent_futures -- test_complex failed
+/Users/dojo/Library/Caches/Homebrew/Python-3.6.2/Lib/test/test_decimal.py:5686: UserWarning: C tests skipped: no module named _decimal.
+  UserWarning)
+0:11:38 load avg: 2.36 [101/405] test_dict_version -- test_devpoll skipped
+0:11:50 load avg: 2.30 [106/405] test_distutils
+/var/folders/x6/9znvyjk52k1drx1h8fl0b0cc0000gn/T/tmphfbm4_g8/deptargetmodule.c:7:2: error: "Unexpected target"
+#error "Unexpected target"
+ ^
+1 error generated.
+/var/folders/x6/9znvyjk52k1drx1h8fl0b0cc0000gn/T/tmp_htdb1_3/deptargetmodule.c:7:2: error: "Unexpected target"
+#error "Unexpected target"
+ ^
+1 error generated.
+0:12:11 load avg: 2.24 [107/405] test_docxmlrpc -- test_distutils failed
+0:12:59 load avg: 2.54 [120/405] test_errno -- test_epoll skipped
+0:13:50 load avg: 2.41 [125/405] test_fcntl -- test_faulthandler failed in 49 sec
+0:14:07 load avg: 2.39 [133/405] test_flufl -- test_float failed
+0:14:16 load avg: 2.33 [138/405] test_frame -- test_fractions failed
+0:14:38 load avg: 2.37 [149/405] test_generator_stop -- test_gdb skipped
+0:14:43 load avg: 2.50 [154/405] test_getopt -- test_getargs2 failed
+0:18:03 load avg: 2.20 [189/405] test_keyword -- test_json failed
+0:20:08 load avg: 2.12 [200/405] test_longexp -- test_long failed
+0:20:48 load avg: 2.25 [208/405] test_memoryio -- test_math failed
+0:21:01 load avg: 1.98 [217/405] test_multibytecodec -- test_msilib skipped
+0:23:44 load avg: 1.54 [269/405] test_range -- test_random failed
+0:26:43 load avg: 2.50 [297/405] test_sndhdr -- test_smtpnet skipped (resource denied)
+0:26:43 load avg: 2.50 [298/405] test_socket
+/Users/dojo/Library/Caches/Homebrew/Python-3.6.2/Lib/test/test_socket.py:2012: RuntimeWarning: received malformed or improperly-truncated ancillary data
+  result = sock.recvmsg(bufsize, *args)
+/Users/dojo/Library/Caches/Homebrew/Python-3.6.2/Lib/test/test_socket.py:2103: RuntimeWarning: received malformed or improperly-truncated ancillary data
+  result = sock.recvmsg_into([buf], *args)
+  0:27:30 load avg: 2.15 [304/405] test_ssl
+Exception in thread Thread-772:
+Traceback (most recent call last):
+  File "/Users/dojo/Library/Caches/Homebrew/Python-3.6.2/Lib/threading.py", line 916, in _bootstrap_inner
+    self.run()
+  File "/Users/dojo/Library/Caches/Homebrew/Python-3.6.2/Lib/test/test_ssl.py", line 1926, in run
+    if not self.wrap_conn():
+  File "/Users/dojo/Library/Caches/Homebrew/Python-3.6.2/Lib/test/test_ssl.py", line 1871, in wrap_conn
+    self.sock, server_side=True)
+  File "/Users/dojo/Library/Caches/Homebrew/Python-3.6.2/Lib/ssl.py", line 401, in wrap_socket
+    _context=self, _session=session)
+  File "/Users/dojo/Library/Caches/Homebrew/Python-3.6.2/Lib/ssl.py", line 808, in __init__
+    self.do_handshake()
+  File "/Users/dojo/Library/Caches/Homebrew/Python-3.6.2/Lib/ssl.py", line 1061, in do_handshake
+    self._sslobj.do_handshake()
+  File "/Users/dojo/Library/Caches/Homebrew/Python-3.6.2/Lib/ssl.py", line 683, in do_handshake
+    self._sslobj.do_handshake()
+OSError: [Errno 0] Error
+
+0:29:32 load avg: 1.96 [332/405] test_telnetlib -- test_tcl failed
+0:30:23 load avg: 1.71 [342/405] test_timeit -- test_time failed
+0:30:25 load avg: 1.71 [344/405] test_tix -- test_timeout skipped (resource denied)
+0:30:25 load avg: 1.71 [345/405] test_tk -- test_tix skipped (resource denied)
+0:30:26 load avg: 1.71 [346/405] test_tokenize -- test_tk skipped (resource denied)
+0:31:30 load avg: 2.00 [352/405] test_ttk_textonly -- test_ttk_guionly skipped (resource denied)
+0:33:12 load avg: 1.79 [371/405] test_urllib_response -- test_urllib2net skipped (resource denied)
+0:33:13 load avg: 1.79 [373/405] test_urlparse -- test_urllibnet skipped (resource denied)
+0:36:42 load avg: 2.07 [399/405] test_yield_from -- test_xmlrpc_net skipped (resource denied)
+0:37:30 load avg: 2.20 [403/405] test_zipimport -- test_zipfile64 skipped (resource denied)
+

@@ -223,8 +223,6 @@ Got:
 0:02:41 load avg: 1.63 [ 40/405] test_bufio -- test_buffer failed in 37 sec
 0:04:16 load avg: 1.92 [ 46/405] test_cgi -- test_capi failed in 39 sec
 0:04:20 load avg: 2.00 [ 51/405] test_cmd -- test_cmath failed
-0:13:04 load avg: 1.77 [182/405] test_ioctl -- test_io failed in 1 min 10 sec
-0:15:46 load avg: 1.73 [200/405] test_longexp -- test_long failed
 0:05:44 load avg: 1.79 [ 75/405] test_complex -- test_compileall failed
 0:05:45 load avg: 1.79 [ 76/405] test_concurrent_futures -- test_complex failed
 0:07:06 load avg: 1.75 [ 77/405] test_configparser -- test_concurrent_futures failed in 1 min 20 sec
@@ -255,17 +253,6 @@ Got:
 0:15:53 load avg: 2.15 [208/405] test_memoryio -- test_math failed
 0:16:05 load avg: 2.20 [215/405] test_modulefinder -- test_module failed
 0:16:08 load avg: 2.27 [217/405] test_multibytecodec -- test_msilib skipped
-0:25:01 load avg: 2.03 [339/405] test_threading_local -- test_threading failed
-0:25:11 load avg: 1.94 [342/405] test_timeit -- test_time failed
-0:25:12 load avg: 1.94 [344/405] test_tix -- test_timeout skipped (resource denied)
-0:25:12 load avg: 1.94 [345/405] test_tk -- test_tix skipped (resource denied)
-0:25:13 load avg: 1.94 [346/405] test_tokenize -- test_tk skipped (resource denied)
-0:25:36 load avg: 2.05 [348/405] test_trace -- test_tools failed
-0:25:59 load avg: 1.97 [350/405] test_tracemalloc -- test_traceback failed
-0:26:08 load avg: 1.97 [352/405] test_ttk_textonly -- test_ttk_guionly skipped (resource denied)
-0:27:48 load avg: 1.52 [371/405] test_urllib_response -- test_urllib2net skipped (resource denied)
-0:27:49 load avg: 1.52 [373/405] test_urlparse -- test_urllibnet skipped (resource denied)
-0:29:11 load avg: 1.32 [384/405] test_wave -- test_warnings failed
 0:16:18 load avg: 2.07 [219/405] test_multiprocessing_forkserver -- test_multiprocessing_fork skipped
 0:16:19 load avg: 2.07 [220/405] test_multiprocessing_main_handling -- test_multiprocessing_forkserver skipped
 0:16:19 load avg: 2.07 [221/405] test_multiprocessing_spawn -- test_multiprocessing_main_handling skipped
@@ -278,7 +265,7 @@ dyld: Library not loaded: /usr/local/Cellar/python3/3.6.2_1/lib/libpython3.6dm.d
 0:21:39 load avg: 1.57 [297/405] test_sndhdr -- test_smtpnet skipped (resource denied)
 /Users/dojo/Library/Caches/Homebrew/Python-3.6.2/Lib/test/test_socket.py:2103: RuntimeWarning: received malformed or improperly-truncated ancillary data
   result = sock.recvmsg_into([buf], *args)
-  0:22:18 load avg: 1.77 [300/405] test_sort -- test_socketserver skipped (resource denied)
+0:22:18 load avg: 1.77 [300/405] test_sort -- test_socketserver skipped (resource denied)
 0:22:25 load avg: 1.79 [303/405] test_sqlite -- test_spwd skipped
 0:22:25 load avg: 1.79 [304/405] test_ssl -- test_sqlite skipped
 0:23:01 load avg: 1.87 [308/405] test_strftime -- test_statistics failed
@@ -288,6 +275,17 @@ dyld: Library not loaded: /usr/local/Cellar/python3/3.6.2_1/lib/libpython3.6dm.d
 0:23:16 load avg: 1.91 [315/405] test_structmembers -- test_struct failed
 0:23:18 load avg: 1.99 [319/405] test_sunau -- test_subprocess skipped
 0:23:21 load avg: 1.99 [323/405] test_symtable -- test_symbol failed
+0:25:01 load avg: 2.03 [339/405] test_threading_local -- test_threading failed
+0:25:11 load avg: 1.94 [342/405] test_timeit -- test_time failed
+0:25:12 load avg: 1.94 [344/405] test_tix -- test_timeout skipped (resource denied)
+0:25:12 load avg: 1.94 [345/405] test_tk -- test_tix skipped (resource denied)
+0:25:13 load avg: 1.94 [346/405] test_tokenize -- test_tk skipped (resource denied)
+0:25:36 load avg: 2.05 [348/405] test_trace -- test_tools failed
+0:25:59 load avg: 1.97 [350/405] test_tracemalloc -- test_traceback failed
+0:26:08 load avg: 1.97 [352/405] test_ttk_textonly -- test_ttk_guionly skipped (resource denied)
+0:27:48 load avg: 1.52 [371/405] test_urllib_response -- test_urllib2net skipped (resource denied)
+0:27:49 load avg: 1.52 [373/405] test_urlparse -- test_urllibnet skipped (resource denied)
+0:29:11 load avg: 1.32 [384/405] test_wave -- test_warnings failed
 0:30:30 load avg: 2.20 [389/405] test_winreg -- test_winconsoleio skipped
 0:30:31 load avg: 2.20 [390/405] test_winsound -- test_winreg skipped
 0:30:31 load avg: 2.20 [391/405] test_with -- test_winsound skipped (resource denied)

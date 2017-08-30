@@ -1,0 +1,443 @@
+Run tests sequentially
+0:00:00 load avg: 3.54 [  1/405] test_grammar
+0:00:00 load avg: 3.54 [  2/405] test_opcodes
+0:00:00 load avg: 3.54 [  3/405] test_dict
+0:00:01 load avg: 3.54 [  4/405] test_builtin
+0:00:04 load avg: 3.26 [  5/405] test_exceptions
+0:00:04 load avg: 3.26 [  6/405] test_types
+0:00:05 load avg: 3.26 [  7/405] test_unittest
+0:00:12 load avg: 3.16 [  8/405] test_doctest
+0:00:20 load avg: 2.90 [  9/405] test_doctest2
+0:00:21 load avg: 2.90 [ 10/405] test_support
+0:00:21 load avg: 2.90 [ 11/405] test___all__
+0:01:05 load avg: 2.15 [ 12/405] test___future__ -- test___all__ passed in 44 sec
+0:01:05 load avg: 2.15 [ 13/405] test__locale
+0:01:07 load avg: 2.15 [ 14/405] test__opcode
+0:01:07 load avg: 2.15 [ 15/405] test__osx_support
+0:01:08 load avg: 2.15 [ 16/405] test_abc
+0:01:08 load avg: 2.15 [ 17/405] test_abstract_numbers
+0:01:08 load avg: 2.22 [ 18/405] test_aifc
+0:01:10 load avg: 2.22 [ 19/405] test_argparse -- test_aifc failed
+0:01:20 load avg: 2.18 [ 20/405] test_array
+0:01:27 load avg: 2.09 [ 21/405] test_asdl_parser
+0:01:28 load avg: 2.09 [ 22/405] test_ast
+0:01:35 load avg: 2.16 [ 23/405] test_asyncgen
+0:01:37 load avg: 2.16 [ 24/405] test_asynchat
+0:01:39 load avg: 2.16 [ 25/405] test_asyncio
+Executing <Task finished coro=<CoroutineTests.test_async_def_wrapped.<locals>.start() done, defined at /Users/dojo/Library/Caches/Homebrew/Python-3.6.2/Lib/test/test_asyncio/test_pep492.py:150> result=None created at /Users/dojo/Library/Caches/Homebrew/Python-3.6.2/Lib/asyncio/base_events.py:446> took 0.129 seconds
+0:03:20 load avg: 1.88 [ 26/405] test_asyncore -- test_asyncio passed in 1 min 42 sec
+0:03:20 load avg: 1.88 [ 27/405] test_atexit -- test_asyncore skipped
+0:03:22 load avg: 1.88 [ 28/405] test_audioop
+0:03:23 load avg: 1.88 [ 29/405] test_augassign
+0:03:23 load avg: 1.88 [ 30/405] test_base64
+0:03:27 load avg: 1.89 [ 31/405] test_baseexception
+0:03:27 load avg: 1.89 [ 32/405] test_bigaddrspace
+0:03:28 load avg: 1.89 [ 33/405] test_bigmem
+0:03:29 load avg: 1.89 [ 34/405] test_binascii
+0:03:29 load avg: 1.89 [ 35/405] test_binhex
+0:03:30 load avg: 1.89 [ 36/405] test_binop
+0:03:30 load avg: 1.89 [ 37/405] test_bisect
+0:03:30 load avg: 1.82 [ 38/405] test_bool
+0:03:31 load avg: 1.82 [ 39/405] test_buffer
+0:04:15 load avg: 2.03 [ 40/405] test_bufio -- test_buffer failed in 45 sec
+0:05:07 load avg: 3.01 [ 41/405] test_bytes -- test_bufio passed in 51 sec
+0:05:19 load avg: 2.85 [ 42/405] test_bz2
+0:05:37 load avg: 2.58 [ 43/405] test_calendar
+0:06:11 load avg: 3.75 [ 44/405] test_call -- test_calendar passed in 34 sec
+0:06:11 load avg: 3.75 [ 45/405] test_capi
+0:07:09 load avg: 2.68 [ 46/405] test_cgi -- test_capi passed in 58 sec
+0:07:09 load avg: 2.68 [ 47/405] test_cgitb
+0:07:12 load avg: 2.68 [ 48/405] test_charmapcodec
+0:07:12 load avg: 2.68 [ 49/405] test_class
+0:07:12 load avg: 2.68 [ 50/405] test_cmath
+0:07:13 load avg: 2.68 [ 51/405] test_cmd -- test_cmath failed
+0:07:13 load avg: 2.68 [ 52/405] test_cmd_line
+0:07:39 load avg: 2.44 [ 53/405] test_cmd_line_script
+0:08:01 load avg: 2.17 [ 54/405] test_code
+0:08:02 load avg: 2.17 [ 55/405] test_code_module
+0:08:02 load avg: 2.17 [ 56/405] test_codeccallbacks
+0:08:03 load avg: 2.17 [ 57/405] test_codecencodings_cn
+0:08:05 load avg: 2.15 [ 58/405] test_codecencodings_hk
+0:08:05 load avg: 2.15 [ 59/405] test_codecencodings_iso2022
+0:08:07 load avg: 2.15 [ 60/405] test_codecencodings_jp
+0:08:10 load avg: 2.14 [ 61/405] test_codecencodings_kr
+0:08:11 load avg: 2.14 [ 62/405] test_codecencodings_tw
+0:08:12 load avg: 2.14 [ 63/405] test_codecmaps_cn
+0:08:12 load avg: 2.14 [ 64/405] test_codecmaps_hk
+0:08:12 load avg: 2.14 [ 65/405] test_codecmaps_jp
+0:08:12 load avg: 2.14 [ 66/405] test_codecmaps_kr
+0:08:12 load avg: 2.14 [ 67/405] test_codecmaps_tw
+0:08:13 load avg: 2.14 [ 68/405] test_codecs
+0:08:23 load avg: 2.12 [ 69/405] test_codeop
+0:08:23 load avg: 2.12 [ 70/405] test_collections
+0:08:26 load avg: 2.11 [ 71/405] test_colorsys
+0:08:26 load avg: 2.11 [ 72/405] test_compare
+0:08:27 load avg: 2.11 [ 73/405] test_compile
+0:08:28 load avg: 2.11 [ 74/405] test_compileall
+0:09:21 load avg: 2.17 [ 75/405] test_complex -- test_compileall passed in 53 sec
+0:09:22 load avg: 2.17 [ 76/405] test_concurrent_futures -- test_complex failed
+0:10:48 load avg: 1.94 [ 77/405] test_configparser -- test_concurrent_futures passed in 1 min 26 sec
+0:10:50 load avg: 1.94 [ 78/405] test_contains
+0:10:51 load avg: 1.94 [ 79/405] test_contextlib
+0:10:51 load avg: 1.94 [ 80/405] test_copy
+0:10:51 load avg: 1.94 [ 81/405] test_copyreg
+0:10:52 load avg: 1.94 [ 82/405] test_coroutines
+0:10:53 load avg: 1.94 [ 83/405] test_cprofile
+0:10:53 load avg: 1.94 [ 84/405] test_crashers
+0:10:54 load avg: 1.94 [ 85/405] test_crypt
+0:10:54 load avg: 1.94 [ 86/405] test_csv
+0:10:59 load avg: 2.19 [ 87/405] test_ctypes
+0:11:02 load avg: 2.33 [ 88/405] test_curses
+0:11:02 load avg: 2.33 [ 89/405] test_datetime -- test_curses skipped (resource denied)
+0:11:05 load avg: 2.33 [ 90/405] test_dbm
+0:11:06 load avg: 2.33 [ 91/405] test_dbm_dumb
+0:11:07 load avg: 2.31 [ 92/405] test_dbm_gnu
+0:11:07 load avg: 2.31 [ 93/405] test_dbm_ndbm
+0:11:08 load avg: 2.31 [ 94/405] test_decimal
+/Users/dojo/Library/Caches/Homebrew/Python-3.6.2/Lib/test/test_decimal.py:5686: UserWarning: C tests skipped: no module named _decimal.
+  UserWarning)
+0:11:22 load avg: 2.37 [ 95/405] test_decorators
+0:11:22 load avg: 2.37 [ 96/405] test_defaultdict
+0:11:23 load avg: 2.37 [ 97/405] test_deque
+0:11:32 load avg: 2.39 [ 98/405] test_descr
+0:11:38 load avg: 2.36 [ 99/405] test_descrtut
+0:11:38 load avg: 2.36 [100/405] test_devpoll
+0:11:38 load avg: 2.36 [101/405] test_dict_version -- test_devpoll skipped
+0:11:39 load avg: 2.36 [102/405] test_dictcomps
+0:11:39 load avg: 2.36 [103/405] test_dictviews
+0:11:39 load avg: 2.36 [104/405] test_difflib
+0:11:44 load avg: 2.33 [105/405] test_dis
+0:11:50 load avg: 2.30 [106/405] test_distutils
+/var/folders/x6/9znvyjk52k1drx1h8fl0b0cc0000gn/T/tmphfbm4_g8/deptargetmodule.c:7:2: error: "Unexpected target"
+#error "Unexpected target"
+ ^
+1 error generated.
+/var/folders/x6/9znvyjk52k1drx1h8fl0b0cc0000gn/T/tmp_htdb1_3/deptargetmodule.c:7:2: error: "Unexpected target"
+#error "Unexpected target"
+ ^
+1 error generated.
+0:12:11 load avg: 2.24 [107/405] test_docxmlrpc -- test_distutils failed
+0:12:12 load avg: 2.24 [108/405] test_dtrace
+0:12:13 load avg: 2.22 [109/405] test_dummy_thread
+0:12:13 load avg: 2.22 [110/405] test_dummy_threading
+0:12:13 load avg: 2.22 [111/405] test_dynamic
+0:12:14 load avg: 2.22 [112/405] test_dynamicclassattribute
+0:12:14 load avg: 2.22 [113/405] test_eintr
+0:12:28 load avg: 2.65 [114/405] test_email
+0:12:55 load avg: 2.58 [115/405] test_ensurepip
+0:12:57 load avg: 2.58 [116/405] test_enum
+0:12:58 load avg: 2.54 [117/405] test_enumerate
+0:12:59 load avg: 2.54 [118/405] test_eof
+0:12:59 load avg: 2.54 [119/405] test_epoll
+0:12:59 load avg: 2.54 [120/405] test_errno -- test_epoll skipped
+0:13:00 load avg: 2.54 [121/405] test_exception_hierarchy
+0:13:00 load avg: 2.54 [122/405] test_exception_variations
+0:13:00 load avg: 2.54 [123/405] test_extcall
+0:13:01 load avg: 2.54 [124/405] test_faulthandler
+0:13:50 load avg: 2.41 [125/405] test_fcntl -- test_faulthandler failed in 49 sec
+0:13:50 load avg: 2.41 [126/405] test_file
+0:13:51 load avg: 2.41 [127/405] test_file_eintr
+0:14:00 load avg: 2.43 [128/405] test_filecmp
+0:14:00 load avg: 2.43 [129/405] test_fileinput
+0:14:01 load avg: 2.43 [130/405] test_fileio
+0:14:01 load avg: 2.43 [131/405] test_finalization
+0:14:05 load avg: 2.39 [132/405] test_float
+0:14:07 load avg: 2.39 [133/405] test_flufl -- test_float failed
+0:14:07 load avg: 2.39 [134/405] test_fnmatch
+0:14:08 load avg: 2.39 [135/405] test_fork1
+0:14:15 load avg: 2.33 [136/405] test_format
+0:14:16 load avg: 2.33 [137/405] test_fractions
+0:14:16 load avg: 2.33 [138/405] test_frame -- test_fractions failed
+0:14:17 load avg: 2.33 [139/405] test_fstring
+0:14:20 load avg: 2.30 [140/405] test_ftplib
+0:14:23 load avg: 2.30 [141/405] test_funcattrs
+0:14:23 load avg: 2.30 [142/405] test_functools
+0:14:24 load avg: 2.44 [143/405] test_future
+0:14:25 load avg: 2.44 [144/405] test_future3
+0:14:25 load avg: 2.44 [145/405] test_future4
+0:14:25 load avg: 2.44 [146/405] test_future5
+0:14:26 load avg: 2.44 [147/405] test_gc
+0:14:37 load avg: 2.37 [148/405] test_gdb
+0:14:38 load avg: 2.37 [149/405] test_generator_stop -- test_gdb skipped
+0:14:38 load avg: 2.37 [150/405] test_generators
+0:14:39 load avg: 2.50 [151/405] test_genericpath
+0:14:41 load avg: 2.50 [152/405] test_genexps
+0:14:42 load avg: 2.50 [153/405] test_getargs2
+0:14:43 load avg: 2.50 [154/405] test_getopt -- test_getargs2 failed
+0:14:43 load avg: 4.06 [155/405] test_getpass
+0:14:44 load avg: 4.06 [156/405] test_gettext
+0:14:54 load avg: 3.66 [157/405] test_glob
+0:15:02 load avg: 5.21 [158/405] test_global
+0:15:02 load avg: 5.21 [159/405] test_grp
+0:15:03 load avg: 5.21 [160/405] test_gzip
+0:15:04 load avg: 4.79 [161/405] test_hash
+0:15:15 load avg: 4.28 [162/405] test_hashlib
+0:15:18 load avg: 4.28 [163/405] test_heapq
+0:15:22 load avg: 4.10 [164/405] test_hmac
+0:15:22 load avg: 4.10 [165/405] test_html
+0:15:22 load avg: 4.10 [166/405] test_htmlparser
+0:15:24 load avg: 4.10 [167/405] test_http_cookiejar
+0:15:27 load avg: 3.93 [168/405] test_http_cookies
+0:15:28 load avg: 3.93 [169/405] test_httplib
+0:15:29 load avg: 3.93 [170/405] test_httpservers
+0:15:42 load avg: 3.57 [171/405] test_idle
+0:15:44 load avg: 3.44 [172/405] test_imaplib
+0:15:48 load avg: 3.44 [173/405] test_imghdr
+0:15:50 load avg: 3.33 [174/405] test_imp
+0:15:50 load avg: 3.33 [175/405] test_import
+0:15:58 load avg: 3.22 [176/405] test_importlib
+0:16:04 load avg: 3.12 [177/405] test_index
+0:16:04 load avg: 3.03 [178/405] test_inspect
+0:16:10 load avg: 2.95 [179/405] test_int
+0:16:10 load avg: 2.95 [180/405] test_int_literal
+0:16:10 load avg: 2.95 [181/405] test_io
+0:17:25 load avg: 2.10 [182/405] test_ioctl -- test_io passed in 1 min 15 sec
+0:17:26 load avg: 2.01 [183/405] test_ipaddress
+0:17:27 load avg: 2.01 [184/405] test_isinstance
+0:17:27 load avg: 2.01 [185/405] test_iter
+0:17:28 load avg: 2.01 [186/405] test_iterlen
+0:17:29 load avg: 2.01 [187/405] test_itertools
+0:17:49 load avg: 2.07 [188/405] test_json
+0:18:03 load avg: 2.20 [189/405] test_keyword -- test_json failed
+0:18:06 load avg: 2.20 [190/405] test_keywordonlyarg
+0:18:06 load avg: 2.10 [191/405] test_kqueue
+0:18:08 load avg: 2.10 [192/405] test_largefile
+0:18:08 load avg: 2.10 [193/405] test_lib2to3
+0:19:15 load avg: 2.15 [194/405] test_linecache -- test_lib2to3 passed in 1 min 7 sec
+0:19:16 load avg: 2.15 [195/405] test_list
+0:19:18 load avg: 2.14 [196/405] test_listcomps
+0:19:18 load avg: 2.14 [197/405] test_locale
+0:19:19 load avg: 2.14 [198/405] test_logging
+0:19:52 load avg: 1.87 [199/405] test_long -- test_logging passed in 33 sec
+0:20:08 load avg: 2.12 [200/405] test_longexp -- test_long failed
+0:20:09 load avg: 2.12 [201/405] test_lzma
+0:20:23 load avg: 2.16 [202/405] test_macpath
+0:20:24 load avg: 2.16 [203/405] test_macurl2path
+0:20:25 load avg: 2.16 [204/405] test_mailbox
+0:20:29 load avg: 2.23 [205/405] test_mailcap
+0:20:29 load avg: 2.23 [206/405] test_marshal
+0:20:39 load avg: 2.35 [207/405] test_math
+0:20:48 load avg: 2.25 [208/405] test_memoryio -- test_math failed
+0:20:49 load avg: 2.15 [209/405] test_memoryview
+0:20:52 load avg: 2.15 [210/405] test_metaclass
+0:20:53 load avg: 2.15 [211/405] test_mimetypes
+0:20:53 load avg: 2.15 [212/405] test_minidom
+0:20:54 load avg: 1.97 [213/405] test_mmap
+0:20:56 load avg: 1.97 [214/405] test_module
+0:20:59 load avg: 1.98 [215/405] test_modulefinder
+0:21:01 load avg: 1.98 [216/405] test_msilib
+0:21:01 load avg: 1.98 [217/405] test_multibytecodec -- test_msilib skipped
+0:21:11 load avg: 1.98 [218/405] test_multiprocessing_fork
+0:21:12 load avg: 1.98 [219/405] test_multiprocessing_forkserver -- test_multiprocessing_fork skipped
+0:21:12 load avg: 1.98 [220/405] test_multiprocessing_main_handling -- test_multiprocessing_forkserver skipped
+0:21:13 load avg: 1.98 [221/405] test_multiprocessing_spawn -- test_multiprocessing_main_handling skipped
+0:21:13 load avg: 1.98 [222/405] test_netrc -- test_multiprocessing_spawn skipped
+0:21:14 load avg: 1.98 [223/405] test_nis
+0:21:14 load avg: 1.90 [224/405] test_nntplib
+0:21:15 load avg: 1.90 [225/405] test_normalization
+0:21:15 load avg: 1.90 [226/405] test_ntpath
+0:21:16 load avg: 1.90 [227/405] test_numeric_tower
+0:21:18 load avg: 1.90 [228/405] test_openpty
+0:21:18 load avg: 1.90 [229/405] test_operator
+0:21:19 load avg: 1.90 [230/405] test_optparse
+0:21:20 load avg: 2.07 [231/405] test_ordered_dict
+0:21:27 load avg: 2.06 [232/405] test_os
+0:21:37 load avg: 2.06 [233/405] test_ossaudiodev
+0:21:38 load avg: 2.06 [234/405] test_osx_env -- test_ossaudiodev skipped (resource denied)
+0:21:38 load avg: 2.06 [235/405] test_parser
+0:21:39 load avg: 2.06 [236/405] test_pathlib
+0:21:41 load avg: 2.13 [237/405] test_pdb
+0:21:45 load avg: 2.12 [238/405] test_peepholer
+0:21:46 load avg: 2.12 [239/405] test_pickle
+0:22:23 load avg: 2.13 [240/405] test_pickletools -- test_pickle passed in 37 sec
+0:22:31 load avg: 2.19 [241/405] test_pipes
+0:22:32 load avg: 2.19 [242/405] test_pkg
+0:22:32 load avg: 2.19 [243/405] test_pkgimport
+0:22:33 load avg: 2.19 [244/405] test_pkgutil
+0:22:33 load avg: 2.19 [245/405] test_platform
+0:22:38 load avg: 2.09 [246/405] test_plistlib
+0:22:39 load avg: 2.09 [247/405] test_poll
+0:22:50 load avg: 2.00 [248/405] test_popen
+0:22:53 load avg: 1.92 [249/405] test_poplib
+0:22:56 load avg: 1.93 [250/405] test_posix
+0:22:57 load avg: 1.93 [251/405] test_posixpath
+0:22:58 load avg: 1.93 [252/405] test_pow
+0:22:59 load avg: 1.93 [253/405] test_pprint
+0:23:00 load avg: 1.93 [254/405] test_print
+0:23:00 load avg: 1.93 [255/405] test_profile
+0:22:31 load avg: 2.19 [241/405] test_pipes
+0:22:32 load avg: 2.19 [242/405] test_pkg
+0:23:01 load avg: 1.85 [256/405] test_property
+0:23:01 load avg: 1.85 [257/405] test_pstats
+0:23:02 load avg: 1.85 [258/405] test_pty
+0:23:03 load avg: 1.85 [259/405] test_pulldom
+0:23:03 load avg: 1.85 [260/405] test_pwd
+0:23:04 load avg: 1.85 [261/405] test_py_compile
+0:23:04 load avg: 1.85 [262/405] test_pyclbr
+0:23:16 load avg: 1.73 [263/405] test_pydoc
+0:23:33 load avg: 1.63 [264/405] test_pyexpat
+0:23:33 load avg: 1.63 [265/405] test_queue
+0:23:37 load avg: 1.50 [266/405] test_quopri
+0:23:39 load avg: 1.50 [267/405] test_raise
+0:23:39 load avg: 1.50 [268/405] test_random
+0:23:44 load avg: 1.54 [269/405] test_range -- test_random failed
+0:23:48 load avg: 1.66 [270/405] test_re
+0:23:54 load avg: 1.68 [271/405] test_readline
+0:23:56 load avg: 1.68 [272/405] test_regrtest
+0:24:48 load avg: 2.90 [273/405] test_reprlib -- test_regrtest passed in 52 sec
+0:24:49 load avg: 2.90 [274/405] test_resource
+0:24:50 load avg: 2.90 [275/405] test_richcmp
+0:24:51 load avg: 2.90 [276/405] test_rlcompleter
+0:24:51 load avg: 2.90 [277/405] test_robotparser
+0:24:52 load avg: 2.90 [278/405] test_runpy
+0:24:58 load avg: 2.76 [279/405] test_sax
+0:24:59 load avg: 2.76 [280/405] test_sched
+0:25:00 load avg: 2.76 [281/405] test_scope
+0:25:01 load avg: 2.76 [282/405] test_script_helper
+0:25:03 load avg: 2.62 [283/405] test_secrets
+0:25:04 load avg: 2.62 [284/405] test_select
+0:25:16 load avg: 2.52 [285/405] test_selectors
+0:25:31 load avg: 2.41 [286/405] test_set
+0:25:41 load avg: 2.73 [287/405] test_setcomps
+0:25:42 load avg: 2.73 [288/405] test_shelve
+0:25:44 load avg: 3.23 [289/405] test_shlex
+0:25:45 load avg: 3.23 [290/405] test_shutil
+0:25:47 load avg: 3.23 [291/405] test_signal
+0:26:15 load avg: 2.74 [292/405] test_site
+0:26:19 load avg: 2.60 [293/405] test_slice
+0:26:20 load avg: 2.60 [294/405] test_smtpd
+0:26:21 load avg: 2.60 [295/405] test_smtplib
+0:26:42 load avg: 2.50 [296/405] test_smtpnet
+0:26:43 load avg: 2.50 [297/405] test_sndhdr -- test_smtpnet skipped (resource denied)
+0:26:43 load avg: 2.50 [298/405] test_socket
+/Users/dojo/Library/Caches/Homebrew/Python-3.6.2/Lib/test/test_socket.py:2012: RuntimeWarning: received malformed or improperly-truncated ancillary data
+  result = sock.recvmsg(bufsize, *args)
+/Users/dojo/Library/Caches/Homebrew/Python-3.6.2/Lib/test/test_socket.py:2103: RuntimeWarning: received malformed or improperly-truncated ancillary data
+  result = sock.recvmsg_into([buf], *args)
+  0:27:21 load avg: 2.17 [299/405] test_socketserver -- test_socket passed in 38 sec
+0:27:22 load avg: 2.17 [300/405] test_sort -- test_socketserver skipped (resource denied)
+0:27:23 load avg: 2.17 [301/405] test_source_encoding
+0:27:28 load avg: 2.16 [302/405] test_spwd
+0:27:28 load avg: 2.16 [303/405] test_sqlite -- test_spwd skipped
+0:27:30 load avg: 2.15 [304/405] test_ssl
+Exception in thread Thread-772:
+Traceback (most recent call last):
+  File "/Users/dojo/Library/Caches/Homebrew/Python-3.6.2/Lib/threading.py", line 916, in _bootstrap_inner
+    self.run()
+  File "/Users/dojo/Library/Caches/Homebrew/Python-3.6.2/Lib/test/test_ssl.py", line 1926, in run
+    if not self.wrap_conn():
+  File "/Users/dojo/Library/Caches/Homebrew/Python-3.6.2/Lib/test/test_ssl.py", line 1871, in wrap_conn
+    self.sock, server_side=True)
+  File "/Users/dojo/Library/Caches/Homebrew/Python-3.6.2/Lib/ssl.py", line 401, in wrap_socket
+    _context=self, _session=session)
+  File "/Users/dojo/Library/Caches/Homebrew/Python-3.6.2/Lib/ssl.py", line 808, in __init__
+    self.do_handshake()
+  File "/Users/dojo/Library/Caches/Homebrew/Python-3.6.2/Lib/ssl.py", line 1061, in do_handshake
+    self._sslobj.do_handshake()
+  File "/Users/dojo/Library/Caches/Homebrew/Python-3.6.2/Lib/ssl.py", line 683, in do_handshake
+    self._sslobj.do_handshake()
+OSError: [Errno 0] Error
+
+0:28:00 load avg: 2.82 [305/405] test_startfile -- test_ssl failed in 30 sec
+0:28:01 load avg: 2.82 [306/405] test_stat -- test_startfile skipped
+0:28:01 load avg: 2.82 [307/405] test_statistics
+0:28:06 load avg: 2.67 [308/405] test_strftime -- test_statistics failed
+0:28:08 load avg: 2.67 [309/405] test_string
+0:28:08 load avg: 2.67 [310/405] test_string_literals
+0:28:11 load avg: 2.62 [311/405] test_stringprep
+0:28:11 load avg: 2.62 [312/405] test_strptime
+0:28:13 load avg: 2.62 [313/405] test_strtod
+0:28:17 load avg: 2.57 [314/405] test_struct
+0:28:20 load avg: 2.52 [315/405] test_structmembers -- test_struct failed
+0:28:21 load avg: 2.52 [316/405] test_structseq
+0:28:21 load avg: 2.52 [317/405] test_subclassinit
+0:28:22 load avg: 2.52 [318/405] test_subprocess
+0:28:22 load avg: 2.52 [319/405] test_sunau -- test_subprocess skipped
+0:28:23 load avg: 2.52 [320/405] test_sundry
+0:28:24 load avg: 2.52 [321/405] test_super
+0:28:24 load avg: 2.52 [322/405] test_symbol
+0:28:25 load avg: 2.48 [323/405] test_symtable
+0:28:26 load avg: 2.48 [324/405] test_syntax
+0:28:27 load avg: 2.48 [325/405] test_sys
+0:28:36 load avg: 2.41 [326/405] test_sys_setprofile
+0:28:37 load avg: 2.41 [327/405] test_sys_settrace
+0:28:37 load avg: 2.41 [328/405] test_sysconfig
+0:28:40 load avg: 2.41 [329/405] test_syslog
+0:28:41 load avg: 2.37 [330/405] test_tarfile
+0:29:32 load avg: 1.96 [332/405] test_telnetlib -- test_tcl failed
+0:29:33 load avg: 1.96 [333/405] test_tempfile
+0:29:40 load avg: 2.13 [334/405] test_textwrap
+0:29:40 load avg: 2.13 [335/405] test_thread
+0:29:42 load avg: 2.04 [336/405] test_threaded_import
+0:29:49 load avg: 1.95 [337/405] test_threadedtempfile
+0:29:51 load avg: 1.95 [338/405] test_threading
+0:30:14 load avg: 1.84 [339/405] test_threading_local
+0:30:16 load avg: 1.84 [340/405] test_threadsignals
+0:30:20 load avg: 1.77 [341/405] test_time
+0:30:23 load avg: 1.71 [342/405] test_timeit -- test_time failed
+0:30:24 load avg: 1.71 [343/405] test_timeout
+0:30:25 load avg: 1.71 [344/405] test_tix -- test_timeout skipped (resource denied)
+0:30:25 load avg: 1.71 [345/405] test_tk -- test_tix skipped (resource denied)
+0:30:26 load avg: 1.71 [346/405] test_tokenize -- test_tk skipped (resource denied)
+0:30:31 load avg: 1.81 [347/405] test_tools
+0:30:53 load avg: 2.08 [348/405] test_trace
+0:31:14 load avg: 1.99 [349/405] test_traceback
+0:31:21 load avg: 1.99 [350/405] test_tracemalloc
+0:31:29 load avg: 2.00 [351/405] test_ttk_guionly
+0:31:30 load avg: 2.00 [352/405] test_ttk_textonly -- test_ttk_guionly skipped (resource denied)
+0:31:31 load avg: 2.00 [353/405] test_tuple
+0:31:49 load avg: 2.36 [354/405] test_turtle
+0:31:50 load avg: 2.36 [355/405] test_typechecks
+0:31:50 load avg: 2.36 [356/405] test_typing
+0:31:51 load avg: 2.36 [357/405] test_ucn
+0:31:53 load avg: 2.36 [358/405] test_unary
+0:31:54 load avg: 2.33 [359/405] test_unicode
+0:32:01 load avg: 2.31 [360/405] test_unicode_file
+0:32:02 load avg: 2.31 [361/405] test_unicode_file_functions
+0:32:02 load avg: 2.31 [362/405] test_unicode_identifiers
+0:32:03 load avg: 2.31 [363/405] test_unicodedata
+0:32:22 load avg: 2.01 [364/405] test_univnewlines
+0:32:23 load avg: 2.01 [365/405] test_unpack
+0:32:23 load avg: 2.01 [366/405] test_unpack_ex
+0:32:24 load avg: 2.01 [367/405] test_urllib
+0:32:30 load avg: 2.00 [368/405] test_urllib2
+0:32:42 load avg: 1.93 [369/405] test_urllib2_localnet
+0:33:11 load avg: 1.79 [370/405] test_urllib2net
+0:33:12 load avg: 1.79 [371/405] test_urllib_response -- test_urllib2net skipped (resource denied)
+0:33:12 load avg: 1.79 [372/405] test_urllibnet
+0:33:13 load avg: 1.79 [373/405] test_urlparse -- test_urllibnet skipped (resource denied)
+0:33:13 load avg: 1.79 [374/405] test_userdict
+0:33:14 load avg: 1.79 [375/405] test_userlist
+0:33:15 load avg: 1.80 [376/405] test_userstring
+0:33:22 load avg: 1.74 [377/405] test_utf8source
+0:33:23 load avg: 1.74 [378/405] test_uu
+0:33:23 load avg: 1.74 [379/405] test_uuid
+0:33:51 load avg: 1.69 [380/405] test_venv
+0:34:48 load avg: 1.81 [381/405] test_wait3 -- test_venv passed in 57 sec
+0:34:55 load avg: 2.06 [382/405] test_wait4
+0:35:02 load avg: 1.97 [383/405] test_warnings
+0:35:10 load avg: 1.97 [384/405] test_wave
+0:35:11 load avg: 1.97 [385/405] test_weakref
+0:36:23 load avg: 1.80 [386/405] test_weakset -- test_weakref passed in 1 min 12 sec
+0:36:24 load avg: 1.80 [387/405] test_webbrowser
+0:36:25 load avg: 1.80 [388/405] test_winconsoleio
+0:36:26 load avg: 1.80 [389/405] test_winreg -- test_winconsoleio skipped
+0:36:26 load avg: 1.80 [390/405] test_winsound -- test_winreg skipped
+0:36:27 load avg: 1.80 [391/405] test_with -- test_winsound skipped (resource denied)
+0:36:27 load avg: 1.80 [392/405] test_wsgiref
+0:36:28 load avg: 1.89 [393/405] test_xdrlib
+0:36:29 load avg: 1.89 [394/405] test_xml_dom_minicompat
+0:36:29 load avg: 1.89 [395/405] test_xml_etree
+0:36:32 load avg: 1.89 [396/405] test_xml_etree_c
+0:36:36 load avg: 1.90 [397/405] test_xmlrpc
+0:36:41 load avg: 2.07 [398/405] test_xmlrpc_net
+0:36:42 load avg: 2.07 [399/405] test_yield_from -- test_xmlrpc_net skipped (resource denied)
+0:36:43 load avg: 2.30 [400/405] test_zipapp
+0:36:43 load avg: 2.30 [401/405] test_zipfile
+0:37:30 load avg: 2.20 [402/405] test_zipfile64 -- test_zipfile passed in 46 sec
+0:37:30 load avg: 2.20 [403/405] test_zipimport -- test_zipfile64 skipped (resource denied)
+0:37:31 load avg: 2.20 [404/405] test_zipimport_support
+0:37:36 load avg: 2.10 [405/405] test_zlib
+
+Total duration: 37 min 38 sec
+Tests result: FAILURE
