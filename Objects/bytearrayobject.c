@@ -12,6 +12,10 @@ class bytearray "PyByteArrayObject *" "&PyByteArray_Type"
 [clinic start generated code]*/
 /*[clinic end generated code: output=da39a3ee5e6b4b0d input=5535b77c37a119e0]*/
 
+const char *__asan_default_options() {
+  return "verbosity=1:detect_odr_violation=0";
+}
+
 char _PyByteArray_empty_string[] = "";
 
 void
