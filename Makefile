@@ -78,7 +78,7 @@ MKDIR_P=	/usr/local/opt/coreutils/libexec/gnubin/mkdir -p
 MAKESETUP=      $(srcdir)/Modules/makesetup
 
 # Compiler options
-OPT=		-DDYNAMIC_ANNOTATIONS_ENABLED=1 -g -O0 -Wall -Wstrict-prototypes
+OPT=		-DDYNAMIC_ANNOTATIONS_ENABLED=1 -g -Ofast -Wall -Wstrict-prototypes
 BASECFLAGS=	-fsanitize=address -fno-omit-frame-pointer  -Wno-unused-result -Wsign-compare
 BASECPPFLAGS=	
 CONFIGURE_CFLAGS=	-fomit-frame-pointer -funroll-loops  -ffast-math -Ofast -fno-signed-zeros -ffp-contract=fast -mmmx -msse -flto  
@@ -493,7 +493,7 @@ build_all_use_profile:
 coverage:
 	@echo "Building with support for coverage checking:"
 	$(MAKE) clean profile-removal
-	$(MAKE) build_all CFLAGS="$(CFLAGS) -O0 -pg -fprofile-arcs -ftest-coverage" LIBS="$(LIBS) -lgcov"
+	$(MAKE) build_all CFLAGS="$(CFLAGS) -Ofast -pg -fprofile-arcs -ftest-coverage" LIBS="$(LIBS) -lgcov"
 
 coverage-lcov:
 	@echo "Creating Coverage HTML report with LCOV:"
