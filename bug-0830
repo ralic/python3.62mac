@@ -1,4 +1,4 @@
-c -fsanitize=address -L/usr/local/opt/openblas/lib -L/usr/local/opt/llvm/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/openssl@1.1/lib  -L/usr/local/opt/openblas/lib -L/usr/local/opt/llvm/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/openssl@1.1/lib    -Wl,-stack_size,1000000  -framework CoreFoundation -o python Programs/python.o -L. -lpython3.6dm -lintl -ldl  -framework CoreFoundation     
+cc -fsanitize=address -L/usr/local/opt/openblas/lib -L/usr/local/opt/llvm/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/openssl@1.1/lib  -L/usr/local/opt/openblas/lib -L/usr/local/opt/llvm/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/openssl@1.1/lib    -Wl,-stack_size,1000000  -framework CoreFoundation -o python Programs/python.o -L. -lpython3.6dm -lintl -ldl  -framework CoreFoundation     
 cc -fsanitize=address -L/usr/local/opt/openblas/lib -L/usr/local/opt/llvm/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/openssl@1.1/lib  -L/usr/local/opt/openblas/lib -L/usr/local/opt/llvm/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/openssl@1.1/lib    -Wl,-stack_size,1000000  -framework CoreFoundation -o Programs/_testembed Programs/_testembed.o -L. -lpython3.6dm -lintl -ldl  -framework CoreFoundation     
 DYLD_LIBRARY_PATH=/Users/dojo/Library/Caches/Homebrew/Python-3.6.2 ./python -E -S -m sysconfig --generate-posix-vars ;\
 if test $? -ne 0 ; then \
@@ -51,3 +51,245 @@ gmake[2]: Leaving directory '/Users/dojo/Library/Caches/Homebrew/Python-3.6.2'
 gmake[1]: *** [Makefile:479: build_all_generate_profile] Error 2
 gmake[1]: Leaving directory '/Users/dojo/Library/Caches/Homebrew/Python-3.6.2'
 gmake: *** [Makefile:464: profile-opt] Error 2
+
+
+### Above issue fixed after modified Objects/bytearrayobject.c ### 
+
+const char *__asan_default_options() {
+  return "verbosity=1:detect_odr_violation=0";
+}
+
+#### 
+*** WARNING: renaming "_sqlite3" since importing it failed: dlopen(build/lib.macosx-10.12.6-x86_64-3.6-pydebug/_sqlite3.cpython-36dm-darwin.so, 2): Symbol not found: _sqlite3_enable_load_extension
+  Referenced from: /Users/dojo/Library/Caches/Homebrew/Python-3.6.2/build/lib.macosx-10.12.6-x86_64-3.6-pydebug/_sqlite3.cpython-36dm-darwin.so
+  Expected in: flat namespace
+ in /Users/dojo/Library/Caches/Homebrew/Python-3.6.2/build/lib.macosx-10.12.6-x86_64-3.6-pydebug/_sqlite3.cpython-36dm-darwin.so
+==48878==T5: stack [0x700007988000,0x700007a08000) size 0x80000; local=0x700007a07320
+
+Python build finished successfully!
+The necessary bits to build these optional modules were not found:
+ossaudiodev           spwd                                     
+To find the necessary bits, look in setup.py in detect_modules() for the module's name.
+
+The following modules found by detect_modules() in setup.py, have been
+built by the Makefile instead, as configured by the Setup files:
+atexit                pwd                   time               
+
+Failed to build these modules:
+_decimal                                                       
+
+
+Following modules built successfully but were removed because they could not be imported:
+_sqlite3                                                       
+
+
+TEST failures
+-------------------------------------------------------------------
+0:00:11 load avg: 3.23 [  8/405] test_doctest
+**********************************************************************
+File "/Users/dojo/Library/Caches/Homebrew/Python-3.6.2/Lib/test/test_doctest.py", line 2743, in test.test_doctest.test_CLI
+Failed example:
+    rc1, out1, err1
+Expected:
+    (0, b'', b'')
+Got:
+    (0, b'', b'==49377==AddressSanitizer: libc interceptors initialized\n|| `[0x200000000000, 0x7fffffffffff]` || HighMem    ||\n|| `[0x140000000000, 0x1fffffffffff]` || HighShadow ||\n|| `[0x120000000000, 0x13ffffffffff]` || ShadowGap  ||\n|| `[0x100000000000, 0x11ffffffffff]` || LowShadow  ||\n|| `[0x000000000000, 0x0fffffffffff]` || LowMem     ||\nMemToShadow(shadow): 0x120000000000 0x123fffffffff 0x128000000000 0x13ffffffffff\nredzone=16\nmax_redzone=2048\nquarantine_size_mb=256M\nmalloc_context_size=30\nSHADOW_SCALE: 3\nSHADOW_GRANULARITY: 8\nSHADOW_OFFSET: 0x100000000000\n==49377==Installed the sigaction for signal 11\n==49377==Installed the sigaction for signal 10\n==49377==T0: stack [0x7fff54fb9000,0x7fff55fb9000) size 0x1000000; local=0x7fff55fb40f0\n==49377==AddressSanitizer Init done')
+**********************************************************************
+File "/Users/dojo/Library/Caches/Homebrew/Python-3.6.2/Lib/test/test_doctest.py", line 2748, in test.test_doctest.test_CLI
+Failed example:
+    rc2, err2
+Expected:
+    (0, b'')
+Got:
+    (0, b'==49379==AddressSanitizer: libc interceptors initialized\n|| `[0x200000000000, 0x7fffffffffff]` || HighMem    ||\n|| `[0x140000000000, 0x1fffffffffff]` || HighShadow ||\n|| `[0x120000000000, 0x13ffffffffff]` || ShadowGap  ||\n|| `[0x100000000000, 0x11ffffffffff]` || LowShadow  ||\n|| `[0x000000000000, 0x0fffffffffff]` || LowMem     ||\nMemToShadow(shadow): 0x120000000000 0x123fffffffff 0x128000000000 0x13ffffffffff\nredzone=16\nmax_redzone=2048\nquarantine_size_mb=256M\nmalloc_context_size=30\nSHADOW_SCALE: 3\nSHADOW_GRANULARITY: 8\nSHADOW_OFFSET: 0x100000000000\n==49379==Installed the sigaction for signal 11\n==49379==Installed the sigaction for signal 10\n==49379==T0: stack [0x7fff5cdeb000,0x7fff5ddeb000) size 0x1000000; local=0x7fff5dde60e0\n==49379==AddressSanitizer Init done')
+**********************************************************************
+File "/Users/dojo/Library/Caches/Homebrew/Python-3.6.2/Lib/test/test_doctest.py", line 2817, in test.test_doctest.test_CLI
+Failed example:
+    rc1, err1
+Expected:
+    (1, b'')
+Got:
+    (1, b'==49381==AddressSanitizer: libc interceptors initialized\n|| `[0x200000000000, 0x7fffffffffff]` || HighMem    ||\n|| `[0x140000000000, 0x1fffffffffff]` || HighShadow ||\n|| `[0x120000000000, 0x13ffffffffff]` || ShadowGap  ||\n|| `[0x100000000000, 0x11ffffffffff]` || LowShadow  ||\n|| `[0x000000000000, 0x0fffffffffff]` || LowMem     ||\nMemToShadow(shadow): 0x120000000000 0x123fffffffff 0x128000000000 0x13ffffffffff\nredzone=16\nmax_redzone=2048\nquarantine_size_mb=256M\nmalloc_context_size=30\nSHADOW_SCALE: 3\nSHADOW_GRANULARITY: 8\nSHADOW_OFFSET: 0x100000000000\n==49381==Installed the sigaction for signal 11\n==49381==Installed the sigaction for signal 10\n==49381==T0: stack [0x7fff5c1f5000,0x7fff5d1f5000) size 0x1000000; local=0x7fff5d1f00a0\n==49381==AddressSanitizer Init done')
+**********************************************************************
+File "/Users/dojo/Library/Caches/Homebrew/Python-3.6.2/Lib/test/test_doctest.py", line 2845, in test.test_doctest.test_CLI
+Failed example:
+    rc2, out2, err2
+Expected:
+    (0, b'', b'')
+Got:
+    (0, b'', b'==49383==AddressSanitizer: libc interceptors initialized\n|| `[0x200000000000, 0x7fffffffffff]` || HighMem    ||\n|| `[0x140000000000, 0x1fffffffffff]` || HighShadow ||\n|| `[0x120000000000, 0x13ffffffffff]` || ShadowGap  ||\n|| `[0x100000000000, 0x11ffffffffff]` || LowShadow  ||\n|| `[0x000000000000, 0x0fffffffffff]` || LowMem     ||\nMemToShadow(shadow): 0x120000000000 0x123fffffffff 0x128000000000 0x13ffffffffff\nredzone=16\nmax_redzone=2048\nquarantine_size_mb=256M\nmalloc_context_size=30\nSHADOW_SCALE: 3\nSHADOW_GRANULARITY: 8\nSHADOW_OFFSET: 0x100000000000\n==49383==Installed the sigaction for signal 11\n==49383==Installed the sigaction for signal 10\n==49383==T0: stack [0x7fff5c248000,0x7fff5d248000) size 0x1000000; local=0x7fff5d2430d0\n==49383==AddressSanitizer Init done')
+**********************************************************************
+File "/Users/dojo/Library/Caches/Homebrew/Python-3.6.2/Lib/test/test_doctest.py", line 2847, in test.test_doctest.test_CLI
+Failed example:
+    rc3, out3, err3
+Expected:
+    (0, b'', b'')
+Got:
+    (0, b'', b'==49385==AddressSanitizer: libc interceptors initialized\n|| `[0x200000000000, 0x7fffffffffff]` || HighMem    ||\n|| `[0x140000000000, 0x1fffffffffff]` || HighShadow ||\n|| `[0x120000000000, 0x13ffffffffff]` || ShadowGap  ||\n|| `[0x100000000000, 0x11ffffffffff]` || LowShadow  ||\n|| `[0x000000000000, 0x0fffffffffff]` || LowMem     ||\nMemToShadow(shadow): 0x120000000000 0x123fffffffff 0x128000000000 0x13ffffffffff\nredzone=16\nmax_redzone=2048\nquarantine_size_mb=256M\nmalloc_context_size=30\nSHADOW_SCALE: 3\nSHADOW_GRANULARITY: 8\nSHADOW_OFFSET: 0x100000000000\n==49385==Installed the sigaction for signal 11\n==49385==Installed the sigaction for signal 10\n==49385==T0: stack [0x7fff54343000,0x7fff55343000) size 0x1000000; local=0x7fff5533e050\n==49385==AddressSanitizer Init done')
+**********************************************************************
+File "/Users/dojo/Library/Caches/Homebrew/Python-3.6.2/Lib/test/test_doctest.py", line 2852, in test.test_doctest.test_CLI
+Failed example:
+    rc4, err4
+Expected:
+    (1, b'')
+Got:
+    (1, b'==49387==AddressSanitizer: libc interceptors initialized\n|| `[0x200000000000, 0x7fffffffffff]` || HighMem    ||\n|| `[0x140000000000, 0x1fffffffffff]` || HighShadow ||\n|| `[0x120000000000, 0x13ffffffffff]` || ShadowGap  ||\n|| `[0x100000000000, 0x11ffffffffff]` || LowShadow  ||\n|| `[0x000000000000, 0x0fffffffffff]` || LowMem     ||\nMemToShadow(shadow): 0x120000000000 0x123fffffffff 0x128000000000 0x13ffffffffff\nredzone=16\nmax_redzone=2048\nquarantine_size_mb=256M\nmalloc_context_size=30\nSHADOW_SCALE: 3\nSHADOW_GRANULARITY: 8\nSHADOW_OFFSET: 0x100000000000\n==49387==Installed the sigaction for signal 11\n==49387==Installed the sigaction for signal 10\n==49387==T0: stack [0x7fff577d6000,0x7fff587d6000) size 0x1000000; local=0x7fff587d1090\n==49387==AddressSanitizer Init done')
+**********************************************************************
+File "/Users/dojo/Library/Caches/Homebrew/Python-3.6.2/Lib/test/test_doctest.py", line 2871, in test.test_doctest.test_CLI
+Failed example:
+    rc5, err5
+Expected:
+    (0, b'')
+Got:
+    (0, b'==49389==AddressSanitizer: libc interceptors initialized\n|| `[0x200000000000, 0x7fffffffffff]` || HighMem    ||\n|| `[0x140000000000, 0x1fffffffffff]` || HighShadow ||\n|| `[0x120000000000, 0x13ffffffffff]` || ShadowGap  ||\n|| `[0x100000000000, 0x11ffffffffff]` || LowShadow  ||\n|| `[0x000000000000, 0x0fffffffffff]` || LowMem     ||\nMemToShadow(shadow): 0x120000000000 0x123fffffffff 0x128000000000 0x13ffffffffff\nredzone=16\nmax_redzone=2048\nquarantine_size_mb=256M\nmalloc_context_size=30\nSHADOW_SCALE: 3\nSHADOW_GRANULARITY: 8\nSHADOW_OFFSET: 0x100000000000\n==49389==Installed the sigaction for signal 11\n==49389==Installed the sigaction for signal 10\n==49389==T0: stack [0x7fff5773c000,0x7fff5873c000) size 0x1000000; local=0x7fff58737050\n==49389==AddressSanitizer Init done')
+**********************************************************************
+File "/Users/dojo/Library/Caches/Homebrew/Python-3.6.2/Lib/test/test_doctest.py", line 2920, in test.test_doctest.test_CLI
+Failed example:
+    print(normalize(err))                    # doctest: +ELLIPSIS
+Expected:
+    Traceback (most recent call last):
+      ...
+    FileNotFoundError: [Errno ...] No such file or directory: 'nosuchfile'
+Got:
+    ==49391==AddressSanitizer: libc interceptors initialized
+    || `[0x200000000000, 0x7fffffffffff]` || HighMem    ||
+    || `[0x140000000000, 0x1fffffffffff]` || HighShadow ||
+    || `[0x120000000000, 0x13ffffffffff]` || ShadowGap  ||
+    || `[0x100000000000, 0x11ffffffffff]` || LowShadow  ||
+    || `[0x000000000000, 0x0fffffffffff]` || LowMem     ||
+    MemToShadow(shadow): 0x120000000000 0x123fffffffff 0x128000000000 0x13ffffffffff
+    redzone=16
+    max_redzone=2048
+    quarantine_size_mb=256M
+    malloc_context_size=30
+    SHADOW_SCALE: 3
+    SHADOW_GRANULARITY: 8
+    SHADOW_OFFSET: 0x100000000000
+    ==49391==Installed the sigaction for signal 11
+    ==49391==Installed the sigaction for signal 10
+    ==49391==T0: stack [0x7fff5c6ac000,0x7fff5d6ac000) size 0x1000000; local=0x7fff5d6a7130
+    ==49391==AddressSanitizer Init done
+    Traceback (most recent call last):
+      File "/Users/dojo/Library/Caches/Homebrew/Python-3.6.2/Lib/runpy.py", line 193, in _run_module_as_main
+        "__main__", mod_spec)
+      File "/Users/dojo/Library/Caches/Homebrew/Python-3.6.2/Lib/runpy.py", line 85, in _run_code
+        exec(code, run_globals)
+      File "/Users/dojo/Library/Caches/Homebrew/Python-3.6.2/Lib/doctest.py", line 2787, in <module>
+        sys.exit(_test())
+      File "/Users/dojo/Library/Caches/Homebrew/Python-3.6.2/Lib/doctest.py", line 2780, in _test
+        verbose=verbose, optionflags=options)
+      File "/Users/dojo/Library/Caches/Homebrew/Python-3.6.2/Lib/doctest.py", line 2051, in testfile
+        encoding or "utf-8")
+      File "/Users/dojo/Library/Caches/Homebrew/Python-3.6.2/Lib/doctest.py", line 226, in _load_testfile
+        with open(filename, encoding=encoding) as f:
+    FileNotFoundError: [Errno 2] No such file or directory: 'nosuchfile'
+**********************************************************************
+File "/Users/dojo/Library/Caches/Homebrew/Python-3.6.2/Lib/test/test_doctest.py", line 2931, in test.test_doctest.test_CLI
+Failed example:
+    print(normalize(err))                    # doctest: +ELLIPSIS
+Expected:
+    usage...invalid...nosuchoption...
+Got:
+    ==49393==AddressSanitizer: libc interceptors initialized
+    || `[0x200000000000, 0x7fffffffffff]` || HighMem    ||
+    || `[0x140000000000, 0x1fffffffffff]` || HighShadow ||
+    || `[0x120000000000, 0x13ffffffffff]` || ShadowGap  ||
+    || `[0x100000000000, 0x11ffffffffff]` || LowShadow  ||
+    || `[0x000000000000, 0x0fffffffffff]` || LowMem     ||
+    MemToShadow(shadow): 0x120000000000 0x123fffffffff 0x128000000000 0x13ffffffffff
+    redzone=16
+    max_redzone=2048
+    quarantine_size_mb=256M
+    malloc_context_size=30
+    SHADOW_SCALE: 3
+    SHADOW_GRANULARITY: 8
+    SHADOW_OFFSET: 0x100000000000
+    ==49393==Installed the sigaction for signal 11
+    ==49393==Installed the sigaction for signal 10
+    ==49393==T0: stack [0x7fff58272000,0x7fff59272000) size 0x1000000; local=0x7fff5926d130
+    ==49393==AddressSanitizer Init done
+    usage: doctest.py [-h] [-v]
+                      [-o {DONT_ACCEPT_TRUE_FOR_1,DONT_ACCEPT_BLANKLINE,NORMALIZE_WHITESPACE,ELLIPSIS,SKIP,IGNORE_EXCEPTION_DETAIL,REPORT_UDIFF,REPORT_CDIFF,REPORT_NDIFF,REPORT_ONLY_FIRST_FAILURE,FAIL_FAST}]
+                      [-f]
+                      file [file ...]
+    doctest.py: error: argument -o/--option: invalid choice: 'nosuchoption' (choose from 'DONT_ACCEPT_TRUE_FOR_1', 'DONT_ACCEPT_BLANKLINE', 'NORMALIZE_WHITESPACE', 'ELLIPSIS', 'SKIP', 'IGNORE_EXCEPTION_DETAIL', 'REPORT_UDIFF', 'REPORT_CDIFF', 'REPORT_NDIFF', 'REPORT_ONLY_FIRST_FAILURE', 'FAIL_FAST')
+**********************************************************************
+1 items had failures:
+   9 of  22 in test.test_doctest.test_CLI
+***Test Failed*** 9 failures.
+0:00:18 load avg: 2.96 [  9/405] test_doctest2 -- test_doctest failed
+0:00:18 load avg: 2.96 [ 10/405] test_support
+0:00:19 load avg: 2.96 [ 11/405] test___all__
+==49354==T1: stack [0x7000020ea000,0x70000216a000) size 0x80000; local=0x700002169320
+==49354==T1 TSDDtor
+==49354==T1 exited
+0:00:33 load avg: 2.53 [ 12/405] test___future__
+0:00:33 load avg: 2.53 [ 13/405] test__locale
+0:00:34 load avg: 2.53 [ 14/405] test__opcode
+0:00:34 load avg: 2.53 [ 15/405] test__osx_support
+0:00:34 load avg: 2.53 [ 16/405] test_abc
+0:00:35 load avg: 2.53 [ 17/405] test_abstract_numbers
+0:00:35 load avg: 2.53 [ 18/405] test_aifc
+0:00:36 load avg: 2.53 [ 19/405] test_argparse -- test_aifc failed
+0:00:46 load avg: 2.29 [ 20/405] test_array
+0:00:50 load avg: 2.27 [ 21/405] test_asdl_parser
+0:00:51 load avg: 2.27 [ 22/405] test_ast
+0:00:58 load avg: 2.30 [ 23/405] test_asyncgen
+0:00:59 load avg: 2.30 [ 24/405] test_asynchat
+==49354==T2: stack [0x7000020ea000,0x7000025ea000) size 0x500000; local=0x7000025e9eb0
+==49354==T2 TSDDtor
+==49354==T2 exited
+==49354==T3: stack [0x7000020ea000,0x7000025ea000) size 0x500000; local=0x7000025e9eb0
+==49354==T3 TSDDtor
+==49354==T3 exited
+==49354==T4: stack [0x7000020ea000,0x7000025ea000) size 0x500000; local=0x7000025e9eb0
+==49354==T4 TSDDtor
+==49354==T4 exited
+==49354==T5: stack [0x7000020ea000,0x7000025ea000) size 0x500000; local=0x7000025e9eb0
+==49354==T5 TSDDtor
+==49354==T5 exited
+==49354==T6: stack [0x7000020ea000,0x7000025ea000) size 0x500000; local=0x7000025e9eb0
+==49354==T6 TSDDtor
+==49354==T6 exited
+==49354==T7: stack [0x7000020ea000,0x7000025ea000) size 0x500000; local=0x7000025e9eb0
+==49354==T7 TSDDtor
+==49354==T7 exited
+==49354==T8: stack [0x7000020ea000,0x7000025ea000) size 0x500000; local=0x7000025e9eb0
+==49354==T8 TSDDtor
+==49354==T8 exited
+==49354==T9: stack [0x7000020ea000,0x7000025ea000) size 0x500000; local=0x7000025e9eb0
+==49354==T9 TSDDtor
+==49354==T9 exited
+==49354==T10: stack [0x7000020ea000,0x7000025ea000) size 0x500000; local=0x7000025e9eb0
+==49354==T10 TSDDtor
+==49354==T10 exited
+==49354==T11: stack [0x7000020ea000,0x7000025ea000) size 0x500000; local=0x7000025e9eb0
+==49354==T11 TSDDtor
+==49354==T11 exited
+==49354==T12: stack [0x7000020ea000,0x7000025ea000) size 0x500000; local=0x7000025e9eb0
+==49354==T12 TSDDtor
+==49354==T12 exited
+==49354==T13: stack [0x7000020ea000,0x7000025ea000) size 0x500000; local=0x7000025e9eb0
+==49354==T13 TSDDtor
+==49354==T13 exited
+==49354==T14: stack [0x7000020ea000,0x7000025ea000) size 0x500000; local=0x7000025e9eb0
+==49354==T14 TSDDtor
+==49354==T14 exited
+==49354==T15: stack [0x7000020ea000,0x7000025ea000) size 0x500000; local=0x7000025e9eb0
+==49354==T15 TSDDtor
+==49354==T15 exited
+==49354==T16: stack [0x7000020ea000,0x7000025ea000) size 0x500000; local=0x7000025e9eb0
+==49354==T16 TSDDtor
+==49354==T16 exited
+==49354==T17: stack [0x7000020ea000,0x7000025ea000) size 0x500000; local=0x7000025e9eb0
+==49354==T17 TSDDtor
+0:01:59 load avg: 2.15 [ 26/405] test_asyncore -- test_asyncio failed in 58 sec
+0:02:03 load avg: 2.15 [ 31/405] test_baseexception -- test_base64 failed
+0:02:41 load avg: 1.63 [ 40/405] test_bufio -- test_buffer failed in 37 sec
+0:04:16 load avg: 1.92 [ 46/405] test_cgi -- test_capi failed in 39 sec
+0:04:20 load avg: 2.00 [ 51/405] test_cmd -- test_cmath failed
+
+
+0:13:04 load avg: 1.77 [182/405] test_ioctl -- test_io failed in 1 min 10 sec
+0:15:46 load avg: 1.73 [200/405] test_longexp -- test_long failed
+
