@@ -24,7 +24,7 @@ installed_prefix ()
     echo $RESULT
 }
 
-prefix_build="/usr/local"
+prefix_build="/usr/local/Cellar/python3/3.6.2_1"
 prefix_real=$(installed_prefix "$0")
 
 # Use sed to fix paths from their built-to locations to their installed-to
