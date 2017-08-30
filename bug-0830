@@ -1,0 +1,53 @@
+c -fsanitize=address -L/usr/local/opt/openblas/lib -L/usr/local/opt/llvm/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/openssl@1.1/lib  -L/usr/local/opt/openblas/lib -L/usr/local/opt/llvm/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/openssl@1.1/lib    -Wl,-stack_size,1000000  -framework CoreFoundation -o python Programs/python.o -L. -lpython3.6dm -lintl -ldl  -framework CoreFoundation     
+cc -fsanitize=address -L/usr/local/opt/openblas/lib -L/usr/local/opt/llvm/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/openssl@1.1/lib  -L/usr/local/opt/openblas/lib -L/usr/local/opt/llvm/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/openssl@1.1/lib    -Wl,-stack_size,1000000  -framework CoreFoundation -o Programs/_testembed Programs/_testembed.o -L. -lpython3.6dm -lintl -ldl  -framework CoreFoundation     
+DYLD_LIBRARY_PATH=/Users/dojo/Library/Caches/Homebrew/Python-3.6.2 ./python -E -S -m sysconfig --generate-posix-vars ;\
+if test $? -ne 0 ; then \
+echo "generate-posix-vars failed" ; \
+rm -f ./pybuilddir.txt ; \
+exit 1 ; \
+fi
+=================================================================
+==47907==ERROR: AddressSanitizer: odr-violation (0x0001058f4a00):
+  [1] size=1 '<string literal>' Objects/bytearrayobject.c:410:50
+  [2] size=1 '<string literal>' Objects/accu.c:11:39
+These globals were registered at these points:
+  [1]:
+    #0 0x105f62637 in __asan_register_globals (libclang_rt.asan_osx_dynamic.dylib:x86_64+0xf637)
+    #1 0x105fa4189 in __asan::AsanApplyToGlobals(void (*)(__asan_global*, unsigned long), void const*) (libclang_rt.asan_osx_dynamic.dylib:x86_64+0x51189)
+    #2 0x105f6256d in __asan_register_image_globals (libclang_rt.asan_osx_dynamic.dylib:x86_64+0xf56d)
+    #3 0x1052e7c66 in asan.module_ctor (libpython3.6dm.dylib:x86_64+0xc66)
+    #4 0x11223ac1d  (<unknown module>)
+    #5 0x1122364a9  (<unknown module>)
+    #6 0x112236440  (<unknown module>)
+    #7 0x112235523  (<unknown module>)
+    #8 0x1122355b8  (<unknown module>)
+    #9 0x112227479  (<unknown module>)
+    #10 0x11222b8c5  (<unknown module>)
+    #11 0x112226248  (<unknown module>)
+    #12 0x112226035  (<unknown module>)
+
+  [2]:
+    #0 0x105f62637 in __asan_register_globals (libclang_rt.asan_osx_dynamic.dylib:x86_64+0xf637)
+    #1 0x105fa4189 in __asan::AsanApplyToGlobals(void (*)(__asan_global*, unsigned long), void const*) (libclang_rt.asan_osx_dynamic.dylib:x86_64+0x51189)
+    #2 0x105f6256d in __asan_register_image_globals (libclang_rt.asan_osx_dynamic.dylib:x86_64+0xf56d)
+    #3 0x1052e7c66 in asan.module_ctor (libpython3.6dm.dylib:x86_64+0xc66)
+    #4 0x11223ac1d  (<unknown module>)
+    #5 0x1122364a9  (<unknown module>)
+    #6 0x112236440  (<unknown module>)
+    #7 0x112235523  (<unknown module>)
+    #8 0x1122355b8  (<unknown module>)
+    #9 0x112227479  (<unknown module>)
+    #10 0x11222b8c5  (<unknown module>)
+    #11 0x112226248  (<unknown module>)
+    #12 0x112226035  (<unknown module>)
+
+==47907==HINT: if you don't care about these errors you may set ASAN_OPTIONS=detect_odr_violation=0
+SUMMARY: AddressSanitizer: odr-violation: global '<string literal>' at Objects/bytearrayobject.c:410:50
+==47907==ABORTING
+/bin/sh: line 5: 47907 Abort trap: 6           DYLD_LIBRARY_PATH=/Users/dojo/Library/Caches/Homebrew/Python-3.6.2 ./python -E -S -m sysconfig --generate-posix-vars
+generate-posix-vars failed
+gmake[2]: *** [Makefile:565: pybuilddir.txt] Error 1
+gmake[2]: Leaving directory '/Users/dojo/Library/Caches/Homebrew/Python-3.6.2'
+gmake[1]: *** [Makefile:479: build_all_generate_profile] Error 2
+gmake[1]: Leaving directory '/Users/dojo/Library/Caches/Homebrew/Python-3.6.2'
+gmake: *** [Makefile:464: profile-opt] Error 2
