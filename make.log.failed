@@ -1,0 +1,17 @@
+0:01:07 load avg: 1.59 [ 19/405] test_argparse -- test_aifc failed
+0:03:24 load avg: 1.86 [ 40/405] test_bufio -- test_buffer failed in 40 sec
+0:05:39 load avg: 1.57 [ 51/405] test_cmd -- test_cmath failed
+0:07:35 load avg: 2.38 [ 76/405] test_concurrent_futures -- test_complex failed
+0:10:18 load avg: 1.95 [107/405] test_docxmlrpc -- test_distutils failed
+0:11:51 load avg: 1.96 [125/405] test_fcntl -- test_faulthandler failed in 45 sec
+0:12:08 load avg: 1.84 [133/405] test_flufl -- test_float failed
+0:12:17 load avg: 1.93 [138/405] test_frame -- test_fractions failed
+0:12:38 load avg: 1.65 [154/405] test_getopt -- test_getargs2 failed
+0:15:19 load avg: 1.72 [189/405] test_keyword -- test_json failed
+0:17:21 load avg: 2.07 [200/405] test_longexp -- test_long failed
+0:17:56 load avg: 2.04 [208/405] test_memoryio -- test_math failed
+0:21:04 load avg: 1.88 [269/405] test_range -- test_random failed
+0:25:20 load avg: 1.95 [305/405] test_startfile -- test_ssl failed in 30 sec
+0:25:26 load avg: 1.95 [308/405] test_strftime -- test_statistics failed
+0:25:40 load avg: 2.11 [315/405] test_structmembers -- test_struct failed
+0:26:59 load avg: 2.18 [332/405] test_telnetlib -- test_tcl failed
