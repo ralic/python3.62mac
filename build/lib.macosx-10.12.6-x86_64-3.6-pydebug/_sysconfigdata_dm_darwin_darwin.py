@@ -9,8 +9,8 @@ build_time_vars = {'ABIFLAGS': 'dm',
                '-Wsign-compare',
  'BASECPPFLAGS': '',
  'BASEMODLIBS': '',
- 'BINDIR': '/usr/local/Cellar/python3/3.6.2_1/bin',
- 'BINLIBDEST': '/usr/local/Cellar/python3/3.6.2_1/lib/python3.6',
+ 'BINDIR': '/usr/local/Cellar/python3/3.6.2/bin',
+ 'BINLIBDEST': '/usr/local/Cellar/python3/3.6.2/lib/python3.6',
  'BLDLIBRARY': '-L. -lpython3.6dm',
  'BLDSHARED': 'cc -bundle -undefined dynamic_lookup -fsanitize=address '
               '-L/usr/local/opt/openblas/lib -L/usr/local/opt/llvm/lib '
@@ -51,13 +51,13 @@ build_time_vars = {'ABIFLAGS': 'dm',
  'CONFIG_ARGS': "'--enable-ipv6' '--enable-profiling' '--enable-optimizations' "
                 "'--enable-loadable-sqlite-extensions' "
                 "'--with-address-sanitizer' '--with-system-ffi' "
-                "'--with-system-expat' '--with-system-libmpdec' "
-                "'--with-threads' '--with-valgrind' '--with-lto' "
-                "'--with-assertions' '--with-pydebug' '--enable-shared' "
-                "'--without-gcc' '--prefix=/usr/local/Cellar/python3/3.6.2_1' "
-                "'CC=cc' 'CFLAGS=-fomit-frame-pointer -funroll-loops  "
-                '-ffast-math -Ofast -fno-signed-zeros -ffp-contract=fast -mmmx '
-                "-msse -flto  ' 'LDFLAGS=-L/usr/local/opt/openblas/lib "
+                "'--with-system-expat' '--with-threads' '--with-valgrind' "
+                "'--with-lto' '--with-assertions' '--with-pydebug' "
+                "'--enable-shared' '--without-gcc' "
+                "'--prefix=/usr/local/Cellar/python3/3.6.2' 'CC=cc' "
+                "'CFLAGS=-fomit-frame-pointer -funroll-loops  -ffast-math "
+                '-Ofast -fno-signed-zeros -ffp-contract=fast -mmmx -msse '
+                "-flto  ' 'LDFLAGS=-L/usr/local/opt/openblas/lib "
                 '-L/usr/local/opt/llvm/lib -L/usr/local/opt/sqlite/lib '
                 '-L/usr/local/opt/readline/lib '
                 "-L/usr/local/opt/openssl@1.1/lib ' "
@@ -65,8 +65,8 @@ build_time_vars = {'ABIFLAGS': 'dm',
                 '-I/usr/local/opt/llvm/include -I/usr/local/opt/sqlite/include '
                 '-I/usr/local/opt/readline/include '
                 "-I/usr/local/opt/openssl@1.1/include ' 'CPP=cc -E'",
- 'CONFINCLUDEDIR': '/usr/local/Cellar/python3/3.6.2_1/include',
- 'CONFINCLUDEPY': '/usr/local/Cellar/python3/3.6.2_1/include/python3.6dm',
+ 'CONFINCLUDEDIR': '/usr/local/Cellar/python3/3.6.2/include',
+ 'CONFINCLUDEPY': '/usr/local/Cellar/python3/3.6.2/include/python3.6dm',
  'COREPYTHONPATH': ':',
  'COVERAGE_INFO': '/Users/dojo/Library/Caches/Homebrew/Python-3.6.2/coverage.info',
  'COVERAGE_REPORT': '/Users/dojo/Library/Caches/Homebrew/Python-3.6.2/lcov-report',
@@ -81,13 +81,13 @@ build_time_vars = {'ABIFLAGS': 'dm',
              '-I/usr/local/opt/readline/include '
              '-I/usr/local/opt/openssl@1.1/include',
  'CXX': 'g++',
- 'DESTDIRS': '/usr/local/Cellar/python3/3.6.2_1 '
-             '/usr/local/Cellar/python3/3.6.2_1/lib '
-             '/usr/local/Cellar/python3/3.6.2_1/lib/python3.6 '
-             '/usr/local/Cellar/python3/3.6.2_1/lib/python3.6/lib-dynload',
- 'DESTLIB': '/usr/local/Cellar/python3/3.6.2_1/lib/python3.6',
+ 'DESTDIRS': '/usr/local/Cellar/python3/3.6.2 '
+             '/usr/local/Cellar/python3/3.6.2/lib '
+             '/usr/local/Cellar/python3/3.6.2/lib/python3.6 '
+             '/usr/local/Cellar/python3/3.6.2/lib/python3.6/lib-dynload',
+ 'DESTLIB': '/usr/local/Cellar/python3/3.6.2/lib/python3.6',
  'DESTPATH': '',
- 'DESTSHARED': '/usr/local/Cellar/python3/3.6.2_1/lib/python3.6/lib-dynload',
+ 'DESTSHARED': '/usr/local/Cellar/python3/3.6.2/lib/python3.6/lib-dynload',
  'DFLAGS': '',
  'DIRMODE': 755,
  'DIST': 'README ChangeLog configure configure.ac acconfig.h pyconfig.h.in '
@@ -501,12 +501,12 @@ build_time_vars = {'ABIFLAGS': 'dm',
  'HAVE_ZLIB_COPY': 1,
  'HAVE__GETPTY': 0,
  'HOST_GNU_TYPE': 'x86_64-apple-darwin16.7.0',
- 'INCLDIRSTOMAKE': '/usr/local/Cellar/python3/3.6.2_1/include '
-                   '/usr/local/Cellar/python3/3.6.2_1/include '
-                   '/usr/local/Cellar/python3/3.6.2_1/include/python3.6dm '
-                   '/usr/local/Cellar/python3/3.6.2_1/include/python3.6dm',
- 'INCLUDEDIR': '/usr/local/Cellar/python3/3.6.2_1/include',
- 'INCLUDEPY': '/usr/local/Cellar/python3/3.6.2_1/include/python3.6dm',
+ 'INCLDIRSTOMAKE': '/usr/local/Cellar/python3/3.6.2/include '
+                   '/usr/local/Cellar/python3/3.6.2/include '
+                   '/usr/local/Cellar/python3/3.6.2/include/python3.6dm '
+                   '/usr/local/Cellar/python3/3.6.2/include/python3.6dm',
+ 'INCLUDEDIR': '/usr/local/Cellar/python3/3.6.2/include',
+ 'INCLUDEPY': '/usr/local/Cellar/python3/3.6.2/include/python3.6dm',
  'INSTALL': '/usr/local/opt/coreutils/libexec/gnubin/install -c',
  'INSTALL_DATA': '/usr/local/opt/coreutils/libexec/gnubin/install -c -m 644',
  'INSTALL_PROGRAM': '/usr/local/opt/coreutils/libexec/gnubin/install -c',
@@ -533,14 +533,14 @@ build_time_vars = {'ABIFLAGS': 'dm',
              '-L/usr/local/opt/readline/lib -L/usr/local/opt/openssl@1.1/lib',
  'LDVERSION': '3.6dm',
  'LIBC': '',
- 'LIBDEST': '/usr/local/Cellar/python3/3.6.2_1/lib/python3.6',
- 'LIBDIR': '/usr/local/Cellar/python3/3.6.2_1/lib',
+ 'LIBDEST': '/usr/local/Cellar/python3/3.6.2/lib/python3.6',
+ 'LIBDIR': '/usr/local/Cellar/python3/3.6.2/lib',
  'LIBFFI_INCLUDEDIR': '/usr/local/Cellar/libffi/3.2.1/lib/libffi-3.2.1/include',
  'LIBM': '',
  'LIBOBJDIR': 'Python/',
  'LIBOBJS': '',
- 'LIBPC': '/usr/local/Cellar/python3/3.6.2_1/lib/pkgconfig',
- 'LIBPL': '/usr/local/Cellar/python3/3.6.2_1/lib/python3.6/config-3.6dm-darwin',
+ 'LIBPC': '/usr/local/Cellar/python3/3.6.2/lib/pkgconfig',
+ 'LIBPL': '/usr/local/Cellar/python3/3.6.2/lib/python3.6/config-3.6dm-darwin',
  'LIBRARY': 'libpython3.6dm.a',
  'LIBRARY_OBJS': '\\',
  'LIBRARY_OBJS_OMIT_FROZEN': '\\',
@@ -558,13 +558,13 @@ build_time_vars = {'ABIFLAGS': 'dm',
  'MACHDEP': 'darwin',
  'MACHDEPPATH': ':',
  'MACHDEP_OBJS': '',
- 'MACHDESTLIB': '/usr/local/Cellar/python3/3.6.2_1/lib/python3.6',
+ 'MACHDESTLIB': '/usr/local/Cellar/python3/3.6.2/lib/python3.6',
  'MACOSX_DEPLOYMENT_TARGET': '10.12.6',
  'MAINCC': 'cc',
  'MAJOR_IN_MKDEV': 0,
  'MAJOR_IN_SYSMACROS': 0,
  'MAKESETUP': './Modules/makesetup',
- 'MANDIR': '/usr/local/Cellar/python3/3.6.2_1/share/man',
+ 'MANDIR': '/usr/local/Cellar/python3/3.6.2/share/man',
  'MKDIR_P': '/usr/local/opt/coreutils/libexec/gnubin/mkdir -p',
  'MODLIBS': '',
  'MODNAMES': '_thread posix errno pwd _sre _codecs _weakref _functools '
@@ -677,7 +677,7 @@ build_time_vars = {'ABIFLAGS': 'dm',
  'RESSRCDIR': 'Mac/Resources/framework',
  'RETSIGTYPE': 'void',
  'RUNSHARED': 'DYLD_LIBRARY_PATH=/Users/dojo/Library/Caches/Homebrew/Python-3.6.2',
- 'SCRIPTDIR': '/usr/local/Cellar/python3/3.6.2_1/lib',
+ 'SCRIPTDIR': '/usr/local/Cellar/python3/3.6.2/lib',
  'SETPGRP_HAVE_ARG': 0,
  'SGI_ABI': '',
  'SHELL': '/bin/sh',
@@ -746,7 +746,7 @@ build_time_vars = {'ABIFLAGS': 'dm',
  'XMLLIBSUBDIRS': 'xml xml/dom xml/etree xml/parsers xml/sax',
  'abs_builddir': '/Users/dojo/Library/Caches/Homebrew/Python-3.6.2',
  'abs_srcdir': '/Users/dojo/Library/Caches/Homebrew/Python-3.6.2',
- 'datarootdir': '/usr/local/Cellar/python3/3.6.2_1/share',
- 'exec_prefix': '/usr/local/Cellar/python3/3.6.2_1',
- 'prefix': '/usr/local/Cellar/python3/3.6.2_1',
+ 'datarootdir': '/usr/local/Cellar/python3/3.6.2/share',
+ 'exec_prefix': '/usr/local/Cellar/python3/3.6.2',
+ 'prefix': '/usr/local/Cellar/python3/3.6.2',
  'srcdir': '.'}

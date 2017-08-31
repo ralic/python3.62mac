@@ -119,7 +119,7 @@ MULTIARCH=	darwin
 MULTIARCH_CPPFLAGS = -DMULTIARCH=\"darwin\"
 
 # Install prefix for architecture-independent files
-prefix=		/usr/local/Cellar/python3/3.6.2_1
+prefix=		/usr/local/Cellar/python3/3.6.2
 
 # Install prefix for architecture-dependent files
 exec_prefix=	${prefix}
@@ -188,7 +188,7 @@ EXEMODE=	755
 FILEMODE=	644
 
 # configure script arguments
-CONFIG_ARGS=	 '--enable-ipv6' '--enable-profiling' '--enable-optimizations' '--enable-loadable-sqlite-extensions' '--with-address-sanitizer' '--with-system-ffi' '--with-system-expat' '--with-system-libmpdec' '--with-threads' '--with-valgrind' '--with-lto' '--with-assertions' '--with-pydebug' '--enable-shared' '--without-gcc' '--prefix=/usr/local/Cellar/python3/3.6.2_1' 'CC=cc' 'CFLAGS=-fomit-frame-pointer -funroll-loops  -ffast-math -Ofast -fno-signed-zeros -ffp-contract=fast -mmmx -msse -flto  ' 'LDFLAGS=-L/usr/local/opt/openblas/lib -L/usr/local/opt/llvm/lib -L/usr/local/opt/sqlite/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/openssl@1.1/lib ' 'CPPFLAGS=-I/usr/local/opt/openblas/include -I/usr/local/opt/llvm/include -I/usr/local/opt/sqlite/include -I/usr/local/opt/readline/include -I/usr/local/opt/openssl@1.1/include ' 'CPP=cc -E'
+CONFIG_ARGS=	 '--enable-ipv6' '--enable-profiling' '--enable-optimizations' '--enable-loadable-sqlite-extensions' '--with-address-sanitizer' '--with-system-ffi' '--with-system-expat' '--with-threads' '--with-valgrind' '--with-lto' '--with-assertions' '--with-pydebug' '--enable-shared' '--without-gcc' '--prefix=/usr/local/Cellar/python3/3.6.2' 'CC=cc' 'CFLAGS=-fomit-frame-pointer -funroll-loops  -ffast-math -Ofast -fno-signed-zeros -ffp-contract=fast -mmmx -msse -flto  ' 'LDFLAGS=-L/usr/local/opt/openblas/lib -L/usr/local/opt/llvm/lib -L/usr/local/opt/sqlite/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/openssl@1.1/lib ' 'CPPFLAGS=-I/usr/local/opt/openblas/include -I/usr/local/opt/llvm/include -I/usr/local/opt/sqlite/include -I/usr/local/opt/readline/include -I/usr/local/opt/openssl@1.1/include ' 'CPP=cc -E'
 
 
 # Subdirectories with code
