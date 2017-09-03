@@ -1,4 +1,4 @@
-#!/usr/local/Cellar/python3/3.6.2/bin/python3.6dm
+#!/Library/Frameworks/Python.framework/Versions/3.6/bin/python3.6dm
 # -*- python -*-
 
 # Keep this script in sync with python-config.sh.in

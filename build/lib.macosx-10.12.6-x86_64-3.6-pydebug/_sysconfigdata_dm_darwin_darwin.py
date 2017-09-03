@@ -6,88 +6,97 @@ build_time_vars = {'ABIFLAGS': 'dm',
  'AR': 'ar',
  'ARFLAGS': 'rc',
  'BASECFLAGS': '-fsanitize=address -fno-omit-frame-pointer  -Wno-unused-result '
-               '-Wsign-compare',
+               '-Wsign-compare -fno-common -dynamic',
  'BASECPPFLAGS': '',
  'BASEMODLIBS': '',
- 'BINDIR': '/usr/local/Cellar/python3/3.6.2/bin',
- 'BINLIBDEST': '/usr/local/Cellar/python3/3.6.2/lib/python3.6',
- 'BLDLIBRARY': '-L. -lpython3.6dm',
+ 'BINDIR': '/Library/Frameworks/Python.framework/Versions/3.6/bin',
+ 'BINLIBDEST': '/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6',
+ 'BLDLIBRARY': '',
  'BLDSHARED': 'cc -bundle -undefined dynamic_lookup -fsanitize=address '
-              '-L/usr/local/opt/openblas/lib -L/usr/local/opt/llvm/lib '
-              '-L/usr/local/opt/sqlite/lib -L/usr/local/opt/readline/lib '
-              '-L/usr/local/opt/openssl@1.1/lib -L/usr/local/opt/openblas/lib '
+              '-L/usr/local/opt/lapack/lib -L/usr/local/opt/openblas/lib '
+              '-L/usr/local/opt/llvm/lib -L/usr/local/opt/sqlite/lib '
+              '-L/usr/local/opt/readline/lib -L/usr/local/opt/openssl@1.1/lib '
+              '-L/usr/local/opt/lapack/lib -L/usr/local/opt/openblas/lib '
               '-L/usr/local/opt/llvm/lib -L/usr/local/opt/sqlite/lib '
               '-L/usr/local/opt/readline/lib -L/usr/local/opt/openssl@1.1/lib',
- 'BUILDEXE': '',
- 'BUILDPYTHON': 'python',
+ 'BUILDEXE': '.exe',
+ 'BUILDPYTHON': 'python.exe',
  'BUILD_GNU_TYPE': 'x86_64-apple-darwin16.7.0',
  'BYTESTR_DEPS': '\\',
  'CC': 'cc',
  'CCSHARED': '',
  'CFLAGS': '-fsanitize=address -fno-omit-frame-pointer  -Wno-unused-result '
-           '-Wsign-compare -DDYNAMIC_ANNOTATIONS_ENABLED=1 -g -Ofast -Wall '
+           '-Wsign-compare -fno-common -dynamic '
+           '-DDYNAMIC_ANNOTATIONS_ENABLED=1 -g -Ofast -Wall '
            '-Wstrict-prototypes -fomit-frame-pointer -funroll-loops  '
            '-ffast-math -Ofast -fno-signed-zeros -ffp-contract=fast -mmmx '
-           '-msse -flto -fomit-frame-pointer -funroll-loops  -ffast-math '
-           '-Ofast -fno-signed-zeros -ffp-contract=fast -mmmx -msse -flto',
+           '-msse -flto -maes -fomit-frame-pointer -funroll-loops  -ffast-math '
+           '-Ofast -fno-signed-zeros -ffp-contract=fast -mmmx -msse -flto '
+           '-maes',
  'CFLAGSFORSHARED': '',
  'CFLAGS_ALIASING': '-fno-strict-aliasing',
  'CONFIGFILES': 'configure configure.ac acconfig.h pyconfig.h.in '
                 'Makefile.pre.in',
  'CONFIGURE_CFLAGS': '-fomit-frame-pointer -funroll-loops  -ffast-math -Ofast '
-                     '-fno-signed-zeros -ffp-contract=fast -mmmx -msse -flto',
+                     '-fno-signed-zeros -ffp-contract=fast -mmmx -msse -flto '
+                     '-maes',
  'CONFIGURE_CFLAGS_NODIST': '-std=c99 -Wextra -Wno-unused-result '
                             '-Wno-unused-parameter '
                             '-Wno-missing-field-initializers',
- 'CONFIGURE_CPPFLAGS': '-I/usr/local/opt/openblas/include '
+ 'CONFIGURE_CPPFLAGS': '-I/usr/local/opt/lapack/include '
+                       '-I/usr/local/opt/openblas/include '
                        '-I/usr/local/opt/llvm/include '
                        '-I/usr/local/opt/sqlite/include '
                        '-I/usr/local/opt/readline/include '
                        '-I/usr/local/opt/openssl@1.1/include',
- 'CONFIGURE_LDFLAGS': '-fsanitize=address -L/usr/local/opt/openblas/lib '
-                      '-L/usr/local/opt/llvm/lib -L/usr/local/opt/sqlite/lib '
+ 'CONFIGURE_LDFLAGS': '-fsanitize=address -L/usr/local/opt/lapack/lib '
+                      '-L/usr/local/opt/openblas/lib -L/usr/local/opt/llvm/lib '
+                      '-L/usr/local/opt/sqlite/lib '
                       '-L/usr/local/opt/readline/lib '
                       '-L/usr/local/opt/openssl@1.1/lib',
- 'CONFIG_ARGS': "'--enable-ipv6' '--enable-profiling' '--enable-optimizations' "
+ 'CONFIG_ARGS': "'--enable-ipv6' '--enable-optimizations' "
                 "'--enable-loadable-sqlite-extensions' "
                 "'--with-address-sanitizer' '--with-system-ffi' "
                 "'--with-system-expat' '--with-threads' '--with-valgrind' "
-                "'--with-lto' '--with-assertions' '--with-pydebug' "
-                "'--enable-shared' '--without-gcc' "
-                "'--prefix=/usr/local/Cellar/python3/3.6.2' 'CC=cc' "
+                "'--with-lto' '--with-pydebug' '--enable-framework' "
+                "'--enable-profiling' '--with-assertions' '--without-gcc' "
+                "'--prefix=/usr/local/Cellar/python3/3.6.2_1' 'CC=cc' "
                 "'CFLAGS=-fomit-frame-pointer -funroll-loops  -ffast-math "
-                '-Ofast -fno-signed-zeros -ffp-contract=fast -mmmx -msse '
-                "-flto  ' 'LDFLAGS=-L/usr/local/opt/openblas/lib "
-                '-L/usr/local/opt/llvm/lib -L/usr/local/opt/sqlite/lib '
-                '-L/usr/local/opt/readline/lib '
+                '-Ofast -fno-signed-zeros -ffp-contract=fast -mmmx -msse -flto '
+                "-maes  ' 'LDFLAGS=-L/usr/local/opt/lapack/lib "
+                '-L/usr/local/opt/openblas/lib -L/usr/local/opt/llvm/lib '
+                '-L/usr/local/opt/sqlite/lib -L/usr/local/opt/readline/lib '
                 "-L/usr/local/opt/openssl@1.1/lib ' "
-                "'CPPFLAGS=-I/usr/local/opt/openblas/include "
+                "'CPPFLAGS=-I/usr/local/opt/lapack/include "
+                '-I/usr/local/opt/openblas/include '
                 '-I/usr/local/opt/llvm/include -I/usr/local/opt/sqlite/include '
                 '-I/usr/local/opt/readline/include '
                 "-I/usr/local/opt/openssl@1.1/include ' 'CPP=cc -E'",
- 'CONFINCLUDEDIR': '/usr/local/Cellar/python3/3.6.2/include',
- 'CONFINCLUDEPY': '/usr/local/Cellar/python3/3.6.2/include/python3.6dm',
+ 'CONFINCLUDEDIR': '/Library/Frameworks/Python.framework/Versions/3.6/include',
+ 'CONFINCLUDEPY': '/Library/Frameworks/Python.framework/Versions/3.6/include/python3.6dm',
  'COREPYTHONPATH': ':',
- 'COVERAGE_INFO': '/Users/dojo/Library/Caches/Homebrew/Python-3.6.2/coverage.info',
- 'COVERAGE_REPORT': '/Users/dojo/Library/Caches/Homebrew/Python-3.6.2/lcov-report',
+ 'COVERAGE_INFO': '/Users/dojo/work/python3.62mac/coverage.info',
+ 'COVERAGE_REPORT': '/Users/dojo/work/python3.62mac/lcov-report',
  'COVERAGE_REPORT_OPTIONS': '--no-branch-coverage --title "CPython lcov '
                             'report"',
- 'CPPFLAGS': '-I. -I./Include -I/usr/local/opt/openblas/include '
-             '-I/usr/local/opt/llvm/include -I/usr/local/opt/sqlite/include '
+ 'CPPFLAGS': '-I. -I./Include -I/usr/local/opt/lapack/include '
+             '-I/usr/local/opt/openblas/include -I/usr/local/opt/llvm/include '
+             '-I/usr/local/opt/sqlite/include '
              '-I/usr/local/opt/readline/include '
              '-I/usr/local/opt/openssl@1.1/include '
+             '-I/usr/local/opt/lapack/include '
              '-I/usr/local/opt/openblas/include -I/usr/local/opt/llvm/include '
              '-I/usr/local/opt/sqlite/include '
              '-I/usr/local/opt/readline/include '
              '-I/usr/local/opt/openssl@1.1/include',
  'CXX': 'g++',
- 'DESTDIRS': '/usr/local/Cellar/python3/3.6.2 '
-             '/usr/local/Cellar/python3/3.6.2/lib '
-             '/usr/local/Cellar/python3/3.6.2/lib/python3.6 '
-             '/usr/local/Cellar/python3/3.6.2/lib/python3.6/lib-dynload',
- 'DESTLIB': '/usr/local/Cellar/python3/3.6.2/lib/python3.6',
+ 'DESTDIRS': '/Library/Frameworks/Python.framework/Versions/3.6 '
+             '/Library/Frameworks/Python.framework/Versions/3.6/lib '
+             '/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6 '
+             '/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/lib-dynload',
+ 'DESTLIB': '/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6',
  'DESTPATH': '',
- 'DESTSHARED': '/usr/local/Cellar/python3/3.6.2/lib/python3.6/lib-dynload',
+ 'DESTSHARED': '/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/lib-dynload',
  'DFLAGS': '',
  'DIRMODE': 755,
  'DIST': 'README ChangeLog configure configure.ac acconfig.h pyconfig.h.in '
@@ -501,53 +510,56 @@ build_time_vars = {'ABIFLAGS': 'dm',
  'HAVE_ZLIB_COPY': 1,
  'HAVE__GETPTY': 0,
  'HOST_GNU_TYPE': 'x86_64-apple-darwin16.7.0',
- 'INCLDIRSTOMAKE': '/usr/local/Cellar/python3/3.6.2/include '
-                   '/usr/local/Cellar/python3/3.6.2/include '
-                   '/usr/local/Cellar/python3/3.6.2/include/python3.6dm '
-                   '/usr/local/Cellar/python3/3.6.2/include/python3.6dm',
- 'INCLUDEDIR': '/usr/local/Cellar/python3/3.6.2/include',
- 'INCLUDEPY': '/usr/local/Cellar/python3/3.6.2/include/python3.6dm',
+ 'INCLDIRSTOMAKE': '/Library/Frameworks/Python.framework/Versions/3.6/include '
+                   '/Library/Frameworks/Python.framework/Versions/3.6/include '
+                   '/Library/Frameworks/Python.framework/Versions/3.6/include/python3.6dm '
+                   '/Library/Frameworks/Python.framework/Versions/3.6/include/python3.6dm',
+ 'INCLUDEDIR': '/Library/Frameworks/Python.framework/Versions/3.6/include',
+ 'INCLUDEPY': '/Library/Frameworks/Python.framework/Versions/3.6/include/python3.6dm',
  'INSTALL': '/usr/local/opt/coreutils/libexec/gnubin/install -c',
  'INSTALL_DATA': '/usr/local/opt/coreutils/libexec/gnubin/install -c -m 644',
  'INSTALL_PROGRAM': '/usr/local/opt/coreutils/libexec/gnubin/install -c',
  'INSTALL_SCRIPT': '/usr/local/opt/coreutils/libexec/gnubin/install -c',
  'INSTALL_SHARED': '/usr/local/opt/coreutils/libexec/gnubin/install -c -m 555',
- 'INSTSONAME': 'libpython3.6dm.dylib',
+ 'INSTSONAME': 'Python.framework/Versions/3.6/Python',
  'IO_H': 'Modules/_io/_iomodule.h',
  'IO_OBJS': '\\',
  'LDCXXSHARED': 'g++ -bundle -undefined dynamic_lookup',
- 'LDFLAGS': '-fsanitize=address -L/usr/local/opt/openblas/lib '
-            '-L/usr/local/opt/llvm/lib -L/usr/local/opt/sqlite/lib '
-            '-L/usr/local/opt/readline/lib -L/usr/local/opt/openssl@1.1/lib '
+ 'LDFLAGS': '-fsanitize=address -L/usr/local/opt/lapack/lib '
+            '-L/usr/local/opt/openblas/lib -L/usr/local/opt/llvm/lib '
+            '-L/usr/local/opt/sqlite/lib -L/usr/local/opt/readline/lib '
+            '-L/usr/local/opt/openssl@1.1/lib -L/usr/local/opt/lapack/lib '
             '-L/usr/local/opt/openblas/lib -L/usr/local/opt/llvm/lib '
             '-L/usr/local/opt/sqlite/lib -L/usr/local/opt/readline/lib '
             '-L/usr/local/opt/openssl@1.1/lib',
  'LDLAST': '',
- 'LDLIBRARY': 'libpython3.6dm.dylib',
+ 'LDLIBRARY': 'Python.framework/Versions/3.6/Python',
  'LDLIBRARYDIR': '',
  'LDSHARED': 'cc -bundle -undefined dynamic_lookup -fsanitize=address '
-             '-L/usr/local/opt/openblas/lib -L/usr/local/opt/llvm/lib '
-             '-L/usr/local/opt/sqlite/lib -L/usr/local/opt/readline/lib '
-             '-L/usr/local/opt/openssl@1.1/lib -L/usr/local/opt/openblas/lib '
+             '-L/usr/local/opt/lapack/lib -L/usr/local/opt/openblas/lib '
+             '-L/usr/local/opt/llvm/lib -L/usr/local/opt/sqlite/lib '
+             '-L/usr/local/opt/readline/lib -L/usr/local/opt/openssl@1.1/lib '
+             '-L/usr/local/opt/lapack/lib -L/usr/local/opt/openblas/lib '
              '-L/usr/local/opt/llvm/lib -L/usr/local/opt/sqlite/lib '
              '-L/usr/local/opt/readline/lib -L/usr/local/opt/openssl@1.1/lib',
  'LDVERSION': '3.6dm',
  'LIBC': '',
- 'LIBDEST': '/usr/local/Cellar/python3/3.6.2/lib/python3.6',
- 'LIBDIR': '/usr/local/Cellar/python3/3.6.2/lib',
+ 'LIBDEST': '/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6',
+ 'LIBDIR': '/Library/Frameworks/Python.framework/Versions/3.6/lib',
  'LIBFFI_INCLUDEDIR': '/usr/local/Cellar/libffi/3.2.1/lib/libffi-3.2.1/include',
  'LIBM': '',
  'LIBOBJDIR': 'Python/',
  'LIBOBJS': '',
- 'LIBPC': '/usr/local/Cellar/python3/3.6.2/lib/pkgconfig',
- 'LIBPL': '/usr/local/Cellar/python3/3.6.2/lib/python3.6/config-3.6dm-darwin',
+ 'LIBPC': '/Library/Frameworks/Python.framework/Versions/3.6/lib/pkgconfig',
+ 'LIBPL': '/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/config-3.6dm-darwin',
  'LIBRARY': 'libpython3.6dm.a',
  'LIBRARY_OBJS': '\\',
  'LIBRARY_OBJS_OMIT_FROZEN': '\\',
  'LIBS': '-lintl -ldl  -framework CoreFoundation',
  'LIBSUBDIRS': 'tkinter tkinter/test tkinter/test/test_tkinter \\',
  'LINKCC': 'cc',
- 'LINKFORSHARED': '-Wl,-stack_size,1000000  -framework CoreFoundation',
+ 'LINKFORSHARED': '-Wl,-stack_size,1000000  -framework CoreFoundation '
+                  'Python.framework/Versions/3.6/Python',
  'LIPO_32BIT_FLAGS': '',
  'LLVM_PROF_ERR': 'no',
  'LLVM_PROF_FILE': '',
@@ -558,13 +570,13 @@ build_time_vars = {'ABIFLAGS': 'dm',
  'MACHDEP': 'darwin',
  'MACHDEPPATH': ':',
  'MACHDEP_OBJS': '',
- 'MACHDESTLIB': '/usr/local/Cellar/python3/3.6.2/lib/python3.6',
+ 'MACHDESTLIB': '/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6',
  'MACOSX_DEPLOYMENT_TARGET': '10.12.6',
  'MAINCC': 'cc',
  'MAJOR_IN_MKDEV': 0,
  'MAJOR_IN_SYSMACROS': 0,
  'MAKESETUP': './Modules/makesetup',
- 'MANDIR': '/usr/local/Cellar/python3/3.6.2/share/man',
+ 'MANDIR': '/Library/Frameworks/Python.framework/Versions/3.6/share/man',
  'MKDIR_P': '/usr/local/opt/coreutils/libexec/gnubin/mkdir -p',
  'MODLIBS': '',
  'MODNAMES': '_thread posix errno pwd _sre _codecs _weakref _functools '
@@ -613,71 +625,80 @@ build_time_vars = {'ABIFLAGS': 'dm',
  'PY3LIBRARY': '',
  'PYLONG_BITS_IN_DIGIT': 0,
  'PYTHON': 'python',
- 'PYTHONFRAMEWORK': '',
- 'PYTHONFRAMEWORKDIR': 'no-framework',
- 'PYTHONFRAMEWORKINSTALLDIR': '',
- 'PYTHONFRAMEWORKPREFIX': '',
+ 'PYTHONFRAMEWORK': 'Python',
+ 'PYTHONFRAMEWORKDIR': 'Python.framework',
+ 'PYTHONFRAMEWORKINSTALLDIR': '/Library/Frameworks/Python.framework',
+ 'PYTHONFRAMEWORKPREFIX': '/Library/Frameworks',
  'PYTHONPATH': ':',
- 'PYTHON_FOR_BUILD': './python -E',
+ 'PYTHON_FOR_BUILD': './python.exe -E',
  'PYTHON_FOR_REGEN': 'python3.6',
  'PYTHON_HEADERS': '\\',
  'PYTHON_OBJS': '\\',
  'PY_CFLAGS': '-fsanitize=address -fno-omit-frame-pointer  -Wno-unused-result '
-              '-Wsign-compare -DDYNAMIC_ANNOTATIONS_ENABLED=1 -g -Ofast -Wall '
+              '-Wsign-compare -fno-common -dynamic '
+              '-DDYNAMIC_ANNOTATIONS_ENABLED=1 -g -Ofast -Wall '
               '-Wstrict-prototypes -fomit-frame-pointer -funroll-loops  '
               '-ffast-math -Ofast -fno-signed-zeros -ffp-contract=fast -mmmx '
-              '-msse -flto -fomit-frame-pointer -funroll-loops  -ffast-math '
-              '-Ofast -fno-signed-zeros -ffp-contract=fast -mmmx -msse -flto',
+              '-msse -flto -maes -fomit-frame-pointer -funroll-loops  '
+              '-ffast-math -Ofast -fno-signed-zeros -ffp-contract=fast -mmmx '
+              '-msse -flto -maes',
  'PY_CFLAGS_NODIST': '-std=c99 -Wextra -Wno-unused-result '
                      '-Wno-unused-parameter -Wno-missing-field-initializers '
                      '-fomit-frame-pointer -funroll-loops  -ffast-math -Ofast '
-                     '-fno-signed-zeros -ffp-contract=fast -mmmx -msse -flto',
+                     '-fno-signed-zeros -ffp-contract=fast -mmmx -msse -flto '
+                     '-maes',
  'PY_CORE_CFLAGS': '-fsanitize=address -fno-omit-frame-pointer  '
-                   '-Wno-unused-result -Wsign-compare '
+                   '-Wno-unused-result -Wsign-compare -fno-common -dynamic '
                    '-DDYNAMIC_ANNOTATIONS_ENABLED=1 -g -Ofast -Wall '
                    '-Wstrict-prototypes -fomit-frame-pointer -funroll-loops  '
                    '-ffast-math -Ofast -fno-signed-zeros -ffp-contract=fast '
-                   '-mmmx -msse -flto -fomit-frame-pointer -funroll-loops  '
-                   '-ffast-math -Ofast -fno-signed-zeros -ffp-contract=fast '
-                   '-mmmx -msse -flto -std=c99 -Wextra -Wno-unused-result '
-                   '-Wno-unused-parameter -Wno-missing-field-initializers '
-                   '-fomit-frame-pointer -funroll-loops  -ffast-math -Ofast '
-                   '-fno-signed-zeros -ffp-contract=fast -mmmx -msse -flto -I. '
-                   '-I./Include -I/usr/local/opt/openblas/include '
+                   '-mmmx -msse -flto -maes -fomit-frame-pointer '
+                   '-funroll-loops  -ffast-math -Ofast -fno-signed-zeros '
+                   '-ffp-contract=fast -mmmx -msse -flto -maes -std=c99 '
+                   '-Wextra -Wno-unused-result -Wno-unused-parameter '
+                   '-Wno-missing-field-initializers -fomit-frame-pointer '
+                   '-funroll-loops  -ffast-math -Ofast -fno-signed-zeros '
+                   '-ffp-contract=fast -mmmx -msse -flto -maes -I. -I./Include '
+                   '-I/usr/local/opt/lapack/include '
+                   '-I/usr/local/opt/openblas/include '
                    '-I/usr/local/opt/llvm/include '
                    '-I/usr/local/opt/sqlite/include '
                    '-I/usr/local/opt/readline/include '
                    '-I/usr/local/opt/openssl@1.1/include '
+                   '-I/usr/local/opt/lapack/include '
                    '-I/usr/local/opt/openblas/include '
                    '-I/usr/local/opt/llvm/include '
                    '-I/usr/local/opt/sqlite/include '
                    '-I/usr/local/opt/readline/include '
                    '-I/usr/local/opt/openssl@1.1/include  -DPy_BUILD_CORE',
- 'PY_CPPFLAGS': '-I. -I./Include -I/usr/local/opt/openblas/include '
+ 'PY_CPPFLAGS': '-I. -I./Include -I/usr/local/opt/lapack/include '
+                '-I/usr/local/opt/openblas/include '
                 '-I/usr/local/opt/llvm/include -I/usr/local/opt/sqlite/include '
                 '-I/usr/local/opt/readline/include '
                 '-I/usr/local/opt/openssl@1.1/include '
+                '-I/usr/local/opt/lapack/include '
                 '-I/usr/local/opt/openblas/include '
                 '-I/usr/local/opt/llvm/include -I/usr/local/opt/sqlite/include '
                 '-I/usr/local/opt/readline/include '
                 '-I/usr/local/opt/openssl@1.1/include',
  'PY_FORMAT_SIZE_T': '"z"',
- 'PY_LDFLAGS': '-fsanitize=address -L/usr/local/opt/openblas/lib '
-               '-L/usr/local/opt/llvm/lib -L/usr/local/opt/sqlite/lib '
-               '-L/usr/local/opt/readline/lib -L/usr/local/opt/openssl@1.1/lib '
+ 'PY_LDFLAGS': '-fsanitize=address -L/usr/local/opt/lapack/lib '
+               '-L/usr/local/opt/openblas/lib -L/usr/local/opt/llvm/lib '
+               '-L/usr/local/opt/sqlite/lib -L/usr/local/opt/readline/lib '
+               '-L/usr/local/opt/openssl@1.1/lib -L/usr/local/opt/lapack/lib '
                '-L/usr/local/opt/openblas/lib -L/usr/local/opt/llvm/lib '
                '-L/usr/local/opt/sqlite/lib -L/usr/local/opt/readline/lib '
                '-L/usr/local/opt/openssl@1.1/lib',
  'Py_DEBUG': 1,
- 'Py_ENABLE_SHARED': 1,
+ 'Py_ENABLE_SHARED': 0,
  'Py_HASH_ALGORITHM': 0,
  'QUICKTESTOPTS': '-x test_subprocess test_io test_lib2to3 \\',
  'RANLIB': 'ranlib',
  'READELF': ':',
  'RESSRCDIR': 'Mac/Resources/framework',
  'RETSIGTYPE': 'void',
- 'RUNSHARED': 'DYLD_LIBRARY_PATH=/Users/dojo/Library/Caches/Homebrew/Python-3.6.2',
- 'SCRIPTDIR': '/usr/local/Cellar/python3/3.6.2/lib',
+ 'RUNSHARED': 'DYLD_FRAMEWORK_PATH=/Users/dojo/work/python3.62mac',
+ 'SCRIPTDIR': '/Library/Frameworks/Python.framework/Versions/3.6/lib',
  'SETPGRP_HAVE_ARG': 0,
  'SGI_ABI': '',
  'SHELL': '/bin/sh',
@@ -717,11 +738,11 @@ build_time_vars = {'ABIFLAGS': 'dm',
  'TCLTK_LIBS': '',
  'TESTOPTS': '',
  'TESTPATH': '',
- 'TESTPYTHON': 'DYLD_LIBRARY_PATH=/Users/dojo/Library/Caches/Homebrew/Python-3.6.2 '
-               './python',
+ 'TESTPYTHON': 'DYLD_FRAMEWORK_PATH=/Users/dojo/work/python3.62mac '
+               './python.exe',
  'TESTPYTHONOPTS': '',
- 'TESTRUNNER': 'DYLD_LIBRARY_PATH=/Users/dojo/Library/Caches/Homebrew/Python-3.6.2 '
-               './python ./Tools/scripts/run_tests.py',
+ 'TESTRUNNER': 'DYLD_FRAMEWORK_PATH=/Users/dojo/work/python3.62mac '
+               './python.exe ./Tools/scripts/run_tests.py',
  'TESTTIMEOUT': 1200,
  'THREADOBJ': 'Python/thread.o',
  'TIMEMODULE_LIB': 0,
@@ -738,15 +759,15 @@ build_time_vars = {'ABIFLAGS': 'dm',
  'WITH_DTRACE': 0,
  'WITH_DYLD': 1,
  'WITH_LIBINTL': 1,
- 'WITH_NEXT_FRAMEWORK': 0,
+ 'WITH_NEXT_FRAMEWORK': 1,
  'WITH_PYMALLOC': 1,
  'WITH_THREAD': 1,
  'WITH_VALGRIND': 1,
  'X87_DOUBLE_ROUNDING': 0,
  'XMLLIBSUBDIRS': 'xml xml/dom xml/etree xml/parsers xml/sax',
- 'abs_builddir': '/Users/dojo/Library/Caches/Homebrew/Python-3.6.2',
- 'abs_srcdir': '/Users/dojo/Library/Caches/Homebrew/Python-3.6.2',
- 'datarootdir': '/usr/local/Cellar/python3/3.6.2/share',
- 'exec_prefix': '/usr/local/Cellar/python3/3.6.2',
- 'prefix': '/usr/local/Cellar/python3/3.6.2',
+ 'abs_builddir': '/Users/dojo/work/python3.62mac',
+ 'abs_srcdir': '/Users/dojo/work/python3.62mac',
+ 'datarootdir': '/Library/Frameworks/Python.framework/Versions/3.6/share',
+ 'exec_prefix': '/Library/Frameworks/Python.framework/Versions/3.6',
+ 'prefix': '/Library/Frameworks/Python.framework/Versions/3.6',
  'srcdir': '.'}

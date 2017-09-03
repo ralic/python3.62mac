@@ -24,7 +24,7 @@ installed_prefix ()
     echo $RESULT
 }
 
-prefix_build="/usr/local/Cellar/python3/3.6.2"
+prefix_build="/Library/Frameworks/Python.framework/Versions/3.6"
 prefix_real=$(installed_prefix "$0")
 
 # Use sed to fix paths from their built-to locations to their installed-to
@@ -34,23 +34,23 @@ exec_prefix_build="${prefix}"
 exec_prefix=$(echo "$exec_prefix_build" | sed "s#$exec_prefix_build#$prefix_real#")
 includedir=$(echo "${prefix}/include" | sed "s#$prefix_build#$prefix_real#")
 libdir=$(echo "${exec_prefix}/lib" | sed "s#$prefix_build#$prefix_real#")
-CFLAGS=$(echo "-fomit-frame-pointer -funroll-loops  -ffast-math -Ofast -fno-signed-zeros -ffp-contract=fast -mmmx -msse -flto  " | sed "s#$prefix_build#$prefix_real#")
+CFLAGS=$(echo "-fomit-frame-pointer -funroll-loops  -ffast-math -Ofast -fno-signed-zeros -ffp-contract=fast -mmmx -msse -flto -maes  " | sed "s#$prefix_build#$prefix_real#")
 VERSION="3.6"
 LIBM=""
 LIBC=""
 SYSLIBS="$LIBM $LIBC"
 ABIFLAGS="dm"
 LIBS="-lpython${VERSION}${ABIFLAGS} -lintl -ldl  -framework CoreFoundation $SYSLIBS"
-BASECFLAGS="-fsanitize=address -fno-omit-frame-pointer  -Wno-unused-result -Wsign-compare"
-LDLIBRARY="libpython$(LDVERSION).dylib"
-LINKFORSHARED="-Wl,-stack_size,1000000  -framework CoreFoundation"
-OPT="-DDYNAMIC_ANNOTATIONS_ENABLED=1 -g -O0 -Wall -Wstrict-prototypes"
-PY_ENABLE_SHARED="1"
+BASECFLAGS="-fsanitize=address -fno-omit-frame-pointer  -Wno-unused-result -Wsign-compare -fno-common -dynamic"
+LDLIBRARY="$(PYTHONFRAMEWORKDIR)/Versions/$(VERSION)/$(PYTHONFRAMEWORK)"
+LINKFORSHARED="-Wl,-stack_size,1000000  -framework CoreFoundation $(PYTHONFRAMEWORKDIR)/Versions/$(VERSION)/$(PYTHONFRAMEWORK)"
+OPT="-DDYNAMIC_ANNOTATIONS_ENABLED=1 -g -Ofast -Wall -Wstrict-prototypes"
+PY_ENABLE_SHARED="0"
 LDVERSION="$(VERSION)$(ABIFLAGS)"
 LIBDEST=${prefix}/lib/python${VERSION}
 LIBPL=$(echo "$(prefix)/lib/python3.6/config-$(VERSION)$(ABIFLAGS)-darwin" | sed "s#$prefix_build#$prefix_real#")
 SO=".cpython-36dm-darwin.so"
-PYTHONFRAMEWORK=""
+PYTHONFRAMEWORK="Python"
 INCDIR="-I$includedir/python${VERSION}${ABIFLAGS}"
 PLATINCDIR="-I$includedir/python${VERSION}${ABIFLAGS}"
 

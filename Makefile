@@ -29,8 +29,8 @@ MODLIBS=        $(LOCALMODLIBS) $(BASEMODLIBS)
 VERSION=	3.6
 srcdir=		.
 
-abs_srcdir=	/Users/dojo/Library/Caches/Homebrew/Python-3.6.2
-abs_builddir=	/Users/dojo/Library/Caches/Homebrew/Python-3.6.2
+abs_srcdir=	/Users/dojo/work/python3.62mac
+abs_builddir=	/Users/dojo/work/python3.62mac
 
 
 CC=		cc
@@ -79,15 +79,15 @@ MAKESETUP=      $(srcdir)/Modules/makesetup
 
 # Compiler options
 OPT=		-DDYNAMIC_ANNOTATIONS_ENABLED=1 -g -Ofast -Wall -Wstrict-prototypes
-BASECFLAGS=	-fsanitize=address -fno-omit-frame-pointer  -Wno-unused-result -Wsign-compare
+BASECFLAGS=	-fsanitize=address -fno-omit-frame-pointer  -Wno-unused-result -Wsign-compare -fno-common -dynamic
 BASECPPFLAGS=	
-CONFIGURE_CFLAGS=	-fomit-frame-pointer -funroll-loops  -ffast-math -Ofast -fno-signed-zeros -ffp-contract=fast -mmmx -msse -flto  
+CONFIGURE_CFLAGS=	-fomit-frame-pointer -funroll-loops  -ffast-math -Ofast -fno-signed-zeros -ffp-contract=fast -mmmx -msse -flto -maes  
 # CFLAGS_NODIST is used for building the interpreter and stdlib C extensions.
 # Use it when a compiler flag should _not_ be part of the distutils CFLAGS
 # once Python is installed (Issue #21121).
 CONFIGURE_CFLAGS_NODIST= -std=c99 -Wextra -Wno-unused-result -Wno-unused-parameter -Wno-missing-field-initializers
-CONFIGURE_CPPFLAGS=	-I/usr/local/opt/openblas/include -I/usr/local/opt/llvm/include -I/usr/local/opt/sqlite/include -I/usr/local/opt/readline/include -I/usr/local/opt/openssl@1.1/include 
-CONFIGURE_LDFLAGS=	-fsanitize=address -L/usr/local/opt/openblas/lib -L/usr/local/opt/llvm/lib -L/usr/local/opt/sqlite/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/openssl@1.1/lib 
+CONFIGURE_CPPFLAGS=	-I/usr/local/opt/lapack/include -I/usr/local/opt/openblas/include -I/usr/local/opt/llvm/include -I/usr/local/opt/sqlite/include -I/usr/local/opt/readline/include -I/usr/local/opt/openssl@1.1/include 
+CONFIGURE_LDFLAGS=	-fsanitize=address -L/usr/local/opt/lapack/lib -L/usr/local/opt/openblas/lib -L/usr/local/opt/llvm/lib -L/usr/local/opt/sqlite/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/openssl@1.1/lib 
 # Avoid assigning CFLAGS, LDFLAGS, etc. so users can use them on the
 # command line to append to these values without stomping the pre-set
 # values.
@@ -102,7 +102,7 @@ NO_AS_NEEDED=
 LDLAST=		
 SGI_ABI=	
 CCSHARED=	
-LINKFORSHARED=	-Wl,-stack_size,1000000  -framework CoreFoundation
+LINKFORSHARED=	-Wl,-stack_size,1000000  -framework CoreFoundation $(PYTHONFRAMEWORKDIR)/Versions/$(VERSION)/$(PYTHONFRAMEWORK)
 ARFLAGS=	rc
 # Extra C flags added for building the interpreter object files.
 CFLAGSFORSHARED=$(CCSHARED)
@@ -120,7 +120,7 @@ MULTIARCH=	darwin
 MULTIARCH_CPPFLAGS = -DMULTIARCH=\"darwin\"
 
 # Install prefix for architecture-independent files
-prefix=		/usr/local/Cellar/python3/3.6.2
+prefix=		/Library/Frameworks/Python.framework/Versions/3.6
 
 # Install prefix for architecture-dependent files
 exec_prefix=	${prefix}
@@ -153,14 +153,14 @@ DESTSHARED=	$(BINLIBDEST)/lib-dynload
 
 # Executable suffix (.exe on Windows and Mac OS X)
 EXE=		
-BUILDEXE=	
+BUILDEXE=	.exe
 
 # Short name and location for Mac OS X Python framework
 UNIVERSALSDK=
-PYTHONFRAMEWORK=	
-PYTHONFRAMEWORKDIR=	no-framework
-PYTHONFRAMEWORKPREFIX=	
-PYTHONFRAMEWORKINSTALLDIR= 
+PYTHONFRAMEWORK=	Python
+PYTHONFRAMEWORKDIR=	Python.framework
+PYTHONFRAMEWORKPREFIX=	/Library/Frameworks
+PYTHONFRAMEWORKINSTALLDIR= /Library/Frameworks/Python.framework
 # Deployment target selected during configure, to be checked
 # by distutils. The export statement is needed to ensure that the
 # deployment target is active during build.
@@ -177,7 +177,7 @@ LIPO_32BIT_FLAGS=
 OTHER_LIBTOOL_OPT=
 
 # Environment to run shared python without installed libraries
-RUNSHARED=       DYLD_LIBRARY_PATH=/Users/dojo/Library/Caches/Homebrew/Python-3.6.2
+RUNSHARED=       DYLD_FRAMEWORK_PATH=/Users/dojo/work/python3.62mac
 
 # ensurepip options
 ENSUREPIP=      upgrade
@@ -189,7 +189,7 @@ EXEMODE=	755
 FILEMODE=	644
 
 # configure script arguments
-CONFIG_ARGS=	 '--enable-ipv6' '--enable-profiling' '--enable-optimizations' '--enable-loadable-sqlite-extensions' '--with-address-sanitizer' '--with-system-ffi' '--with-system-expat' '--with-threads' '--with-valgrind' '--with-lto' '--with-assertions' '--with-pydebug' '--enable-shared' '--without-gcc' '--prefix=/usr/local/Cellar/python3/3.6.2' 'CC=cc' 'CFLAGS=-fomit-frame-pointer -funroll-loops  -ffast-math -Ofast -fno-signed-zeros -ffp-contract=fast -mmmx -msse -flto  ' 'LDFLAGS=-L/usr/local/opt/openblas/lib -L/usr/local/opt/llvm/lib -L/usr/local/opt/sqlite/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/openssl@1.1/lib ' 'CPPFLAGS=-I/usr/local/opt/openblas/include -I/usr/local/opt/llvm/include -I/usr/local/opt/sqlite/include -I/usr/local/opt/readline/include -I/usr/local/opt/openssl@1.1/include ' 'CPP=cc -E'
+CONFIG_ARGS=	 '--enable-ipv6' '--enable-optimizations' '--enable-loadable-sqlite-extensions' '--with-address-sanitizer' '--with-system-ffi' '--with-system-expat' '--with-threads' '--with-valgrind' '--with-lto' '--with-pydebug' '--enable-framework' '--enable-profiling' '--with-assertions' '--without-gcc' '--prefix=/usr/local/Cellar/python3/3.6.2_1' 'CC=cc' 'CFLAGS=-fomit-frame-pointer -funroll-loops  -ffast-math -Ofast -fno-signed-zeros -ffp-contract=fast -mmmx -msse -flto -maes  ' 'LDFLAGS=-L/usr/local/opt/lapack/lib -L/usr/local/opt/openblas/lib -L/usr/local/opt/llvm/lib -L/usr/local/opt/sqlite/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/openssl@1.1/lib ' 'CPPFLAGS=-I/usr/local/opt/lapack/include -I/usr/local/opt/openblas/include -I/usr/local/opt/llvm/include -I/usr/local/opt/sqlite/include -I/usr/local/opt/readline/include -I/usr/local/opt/openssl@1.1/include ' 'CPP=cc -E'
 
 
 # Subdirectories with code
@@ -206,8 +206,8 @@ DIST=		$(DISTFILES) $(DISTDIRS)
 
 
 LIBRARY=	libpython$(VERSION)$(ABIFLAGS).a
-LDLIBRARY=      libpython$(LDVERSION).dylib
-BLDLIBRARY=     -L. -lpython$(LDVERSION)
+LDLIBRARY=      $(PYTHONFRAMEWORKDIR)/Versions/$(VERSION)/$(PYTHONFRAMEWORK)
+BLDLIBRARY=     
 PY3LIBRARY=     
 DLLLIBRARY=	
 LDLIBRARYDIR=   
@@ -493,7 +493,7 @@ build_all_use_profile:
 coverage:
 	@echo "Building with support for coverage checking:"
 	$(MAKE) clean profile-removal
-	$(MAKE) build_all CFLAGS="$(CFLAGS) -Ofast -pg -fprofile-arcs -ftest-coverage" LIBS="$(LIBS) -lgcov"
+	$(MAKE) build_all CFLAGS="$(CFLAGS) -O0 -pg -fprofile-arcs -ftest-coverage" LIBS="$(LIBS) -lgcov"
 
 coverage-lcov:
 	@echo "Creating Coverage HTML report with LCOV:"
@@ -1063,7 +1063,7 @@ quicktest:	build_all platform
 		$(TESTRUNNER) $(QUICKTESTOPTS)
 
 
-install:  commoninstall bininstall maninstall 
+install: frameworkinstallstructure commoninstall bininstall maninstall frameworkinstallmaclib frameworkinstallapps frameworkinstallunixtools
 	if test "x$(ENSUREPIP)" != "xno"  ; then \
 		case $(ENSUREPIP) in \
 			upgrade) ensurepip="--upgrade" ;; \
@@ -1083,10 +1083,10 @@ altinstall: commoninstall
 			$$ensurepip --root=$(DESTDIR)/ ; \
 	fi
 
-commoninstall:   \
+commoninstall:  frameworkinstallstructure  \
 		altbininstall libinstall inclinstall libainstall \
 		sharedinstall oldsharedinstall altmaninstall \
-		
+		frameworkinstallmaclib frameworkinstallapps frameworkaltinstallunixtools
 
 # Install shared libraries enabled by Setup
 DESTDIRS=	$(exec_prefix) $(LIBDIR) $(BINLIBDEST) $(DESTSHARED)
@@ -1111,7 +1111,7 @@ $(DESTSHARED):
 
 # Install the interpreter with $(VERSION) affixed
 # This goes into $(exec_prefix)
-altbininstall: $(BUILDPYTHON) 
+altbininstall: $(BUILDPYTHON) frameworkpythonw
 	@for i in $(BINDIR) $(LIBDIR); \
 	do \
 		if test ! -d $(DESTDIR)$$i; then \
