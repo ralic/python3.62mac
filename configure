@@ -6902,7 +6902,7 @@ then
                 if "$CC" -v --help 2>/dev/null |grep -- -Og > /dev/null; then
                     OPT="-g -Og -Wall"
                 else
-                    OPT="-g -O0 -Wall"
+                    OPT="-g -Ofast -Wall"
                 fi
 	    else
 		OPT="-g $WRAP -O3 -Wall"
