@@ -60,10 +60,10 @@ build_time_vars = {'ABIFLAGS': 'dm',
                 "'--with-system-expat' '--with-threads' '--with-valgrind' "
                 "'--with-lto' '--with-pydebug' '--enable-framework' "
                 "'--enable-profiling' '--with-assertions' '--without-gcc' "
-                "'--prefix=/usr/local/Cellar/python3/3.6.2_1' 'CC=cc' "
+                "'--prefix=/usr/local/Cellar/python3/3.6.2' 'CC=cc' "
                 "'CFLAGS=-fomit-frame-pointer -funroll-loops  -ffast-math "
                 '-Ofast -fno-signed-zeros -ffp-contract=fast -mmmx -msse -flto '
-                "-maes  ' 'LDFLAGS=-L/usr/local/opt/lapack/lib "
+                "-maes   ' 'LDFLAGS=-L/usr/local/opt/lapack/lib "
                 '-L/usr/local/opt/openblas/lib -L/usr/local/opt/llvm/lib '
                 '-L/usr/local/opt/sqlite/lib -L/usr/local/opt/readline/lib '
                 "-L/usr/local/opt/openssl@1.1/lib ' "
