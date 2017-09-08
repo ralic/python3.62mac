@@ -1,5 +1,11 @@
 ASAN_OPTIONS=detect_leaks=0:detect_odr_violation=0
-./configure --enable-ipv6 --enable-profiling --enable-optimizations --enable-loadable-sqlite-extensions --with-address-sanitizer --with-system-ffi --with-system-expat --with-threads --with-valgrind --with-lto --with-assertions --with-pydebug --enable-framework --enable-profiling --with-assertions --without-gcc --prefix=/usr/local/Cellar/python3/3.6.2 --with-dtrace
+CC=mpicc
+PYVERSION=3.6.2_1
+./configure --enable-ipv6  --enable-optimizations --enable-loadable-sqlite-extensions --with-ensurepip=upgrade --with-system-expat --with-system-ffi  --enable-profiling  --with-threads --with-valgrind --with-lto --with-assertions --with-pydebug --enable-profiling --with-assertions --without-gcc  --datarootdir=/usr/local/Cellar/python3/$PYVERSION/share --datadir=/usr/local/Cellar/python3/$PYVERSION/share --enable-framework=/usr/local/Cellar/python3/$PYVERSION/Frameworks --prefix=/usr/local/Cellar/python3/$PYVERSION
+
+##  --with-dtrace
+## --with-address-sanitizer  ## not for high-sierra
+##  ## not for high-sierra
 ## --with-universal-archs=all
 ## --enable-shared 
-## configure: error: Specifying both --enable-shared and --enable-framework is not supported, use only --enable-framework instead
+## configure: error: Specifying bothand --enable-framework is not supported, use only --enable-framework instead --enable-framework 

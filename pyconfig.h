@@ -72,7 +72,7 @@
 #define HAVE_ATANH 1
 
 /* Define to 1 if you have the `bind_textdomain_codeset' function. */
-#define HAVE_BIND_TEXTDOMAIN_CODESET 1
+/* #undef HAVE_BIND_TEXTDOMAIN_CODESET */
 
 /* Define to 1 if you have the <bluetooth/bluetooth.h> header file. */
 /* #undef HAVE_BLUETOOTH_BLUETOOTH_H */
@@ -337,7 +337,7 @@
 #define HAVE_FTRUNCATE 1
 
 /* Define to 1 if you have the `futimens' function. */
-/* #undef HAVE_FUTIMENS */
+#define HAVE_FUTIMENS 1
 
 /* Define to 1 if you have the `futimes' function. */
 #define HAVE_FUTIMES 1
@@ -534,7 +534,7 @@
 /* #undef HAVE_LIBIEEE */
 
 /* Define to 1 if you have the <libintl.h> header file. */
-#define HAVE_LIBINTL_H 1
+/* #undef HAVE_LIBINTL_H */
 
 /* Define if you have the readline library (-lreadline). */
 #define HAVE_LIBREADLINE 1
@@ -1156,7 +1156,7 @@
 #define HAVE_UTIL_H 1
 
 /* Define to 1 if you have the `utimensat' function. */
-/* #undef HAVE_UTIMENSAT */
+#define HAVE_UTIMENSAT 1
 
 /* Define to 1 if you have the `utimes' function. */
 #define HAVE_UTIMES 1
@@ -1375,7 +1375,7 @@
 #define WITH_DOC_STRINGS 1
 
 /* Define if you want to compile in DTrace support */
-/* #undef WITH_DTRACE */
+#define WITH_DTRACE 1
 
 /* Define if you want to use the new-style (Openstep, Rhapsody, MacOS) dynamic
    linker (dyld) instead of the old-style (NextStep) dynamic linker (rld).
@@ -1383,7 +1383,7 @@
 #define WITH_DYLD 1
 
 /* Define to 1 if libintl is needed for locale functions. */
-#define WITH_LIBINTL 1
+/* #undef WITH_LIBINTL */
 
 /* Define if you want to produce an OpenStep/Rhapsody framework (shared
    library plus accessory files). */

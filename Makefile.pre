@@ -49,9 +49,9 @@ PGO_PROF_USE_FLAG=
 LLVM_PROF_MERGER=
 LLVM_PROF_FILE=
 LLVM_PROF_ERR=no
-DTRACE=         
+DTRACE=         /usr/sbin/dtrace
 DFLAGS=         
-DTRACE_HEADERS= 
+DTRACE_HEADERS= Include/pydtrace_probes.h
 DTRACE_OBJS=    
 
 GNULD=		no
@@ -80,7 +80,7 @@ MAKESETUP=      $(srcdir)/Modules/makesetup
 OPT=		-DDYNAMIC_ANNOTATIONS_ENABLED=1 -g -Ofast -Wall -Wstrict-prototypes
 BASECFLAGS=	-fsanitize=address -fno-omit-frame-pointer  -Wno-unused-result -Wsign-compare -fno-common -dynamic
 BASECPPFLAGS=	
-CONFIGURE_CFLAGS=	-fomit-frame-pointer -funroll-loops  -ffast-math -Ofast -fno-signed-zeros -ffp-contract=fast -mmmx -msse -flto -maes   
+CONFIGURE_CFLAGS=	-fomit-frame-pointer -funroll-loops  -ffast-math -Ofast -fno-signed-zeros -ffp-contract=fast -mmmx -msse -flto -maes -march=native  
 # CFLAGS_NODIST is used for building the interpreter and stdlib C extensions.
 # Use it when a compiler flag should _not_ be part of the distutils CFLAGS
 # once Python is installed (Issue #21121).
@@ -163,7 +163,7 @@ PYTHONFRAMEWORKINSTALLDIR= /Library/Frameworks/Python.framework
 # Deployment target selected during configure, to be checked
 # by distutils. The export statement is needed to ensure that the
 # deployment target is active during build.
-MACOSX_DEPLOYMENT_TARGET=10.12.6
+MACOSX_DEPLOYMENT_TARGET=10.13
 export MACOSX_DEPLOYMENT_TARGET
 
 # Option to install to strip binaries
@@ -188,7 +188,7 @@ EXEMODE=	755
 FILEMODE=	644
 
 # configure script arguments
-CONFIG_ARGS=	 '--enable-ipv6' '--enable-optimizations' '--enable-loadable-sqlite-extensions' '--with-address-sanitizer' '--with-system-ffi' '--with-system-expat' '--with-threads' '--with-valgrind' '--with-lto' '--with-pydebug' '--enable-framework' '--enable-profiling' '--with-assertions' '--without-gcc' '--prefix=/usr/local/Cellar/python3/3.6.2' 'CC=cc' 'CFLAGS=-fomit-frame-pointer -funroll-loops  -ffast-math -Ofast -fno-signed-zeros -ffp-contract=fast -mmmx -msse -flto -maes   ' 'LDFLAGS=-L/usr/local/opt/lapack/lib -L/usr/local/opt/openblas/lib -L/usr/local/opt/llvm/lib -L/usr/local/opt/sqlite/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/openssl@1.1/lib ' 'CPPFLAGS=-I/usr/local/opt/lapack/include -I/usr/local/opt/openblas/include -I/usr/local/opt/llvm/include -I/usr/local/opt/sqlite/include -I/usr/local/opt/readline/include -I/usr/local/opt/openssl@1.1/include ' 'CPP=cc -E'
+CONFIG_ARGS=	 '--enable-ipv6' '--enable-optimizations' '--enable-loadable-sqlite-extensions' '--with-address-sanitizer' '--with-system-ffi' '--with-system-expat' '--with-threads' '--with-valgrind' '--with-lto' '--with-pydebug' '--enable-framework' '--enable-profiling' '--with-assertions' '--without-gcc' '--prefix=/usr/local/Cellar/python3/3.6.2_1' '--with-dtrace' 'CC=cc' 'CFLAGS=-fomit-frame-pointer -funroll-loops  -ffast-math -Ofast -fno-signed-zeros -ffp-contract=fast -mmmx -msse -flto -maes -march=native  ' 'LDFLAGS=-L/usr/local/opt/lapack/lib -L/usr/local/opt/openblas/lib -L/usr/local/opt/llvm/lib -L/usr/local/opt/sqlite/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/openssl@1.1/lib ' 'CPPFLAGS=-I/usr/local/opt/lapack/include -I/usr/local/opt/openblas/include -I/usr/local/opt/llvm/include -I/usr/local/opt/sqlite/include -I/usr/local/opt/readline/include -I/usr/local/opt/openssl@1.1/include ' 'CPP=cc -E'
 
 
 # Subdirectories with code
@@ -213,7 +213,7 @@ LDLIBRARYDIR=
 INSTSONAME=	$(LDLIBRARY)
 
 
-LIBS=		-lintl -ldl  -framework CoreFoundation
+LIBS=		-ldl  -framework CoreFoundation
 LIBM=		
 LIBC=		
 SYSLIBS=	$(LIBM) $(LIBC)
@@ -229,11 +229,11 @@ LIBOBJS=
 PYTHON=		python$(EXE)
 BUILDPYTHON=	python$(BUILDEXE)
 
-PYTHON_FOR_REGEN=python3.6
+PYTHON_FOR_REGEN=python
 PYTHON_FOR_BUILD=./$(BUILDPYTHON) -E
 _PYTHON_HOST_PLATFORM=
-BUILD_GNU_TYPE=	x86_64-apple-darwin16.7.0
-HOST_GNU_TYPE=	x86_64-apple-darwin16.7.0
+BUILD_GNU_TYPE=	x86_64-apple-darwin17.0.0
+HOST_GNU_TYPE=	x86_64-apple-darwin17.0.0
 
 # Tcl and Tk config info from --with-tcltk-includes and -libs options
 TCLTK_INCLUDES=	
@@ -274,7 +274,7 @@ IO_OBJS=	\
 
 ##########################################################################
 
-LIBFFI_INCLUDEDIR=	/usr/local/Cellar/libffi/3.2.1/lib/libffi-3.2.1/include
+LIBFFI_INCLUDEDIR=	
 
 ##########################################################################
 # Parser
@@ -1687,7 +1687,7 @@ patchcheck: build_all
 
 # Dependencies
 
-Python/thread.o:  $(srcdir)/Python/thread_*.h
+Python/thread.o:  $(srcdir)/Python/thread_foobar.h $(srcdir)/Python/thread_nt.h $(srcdir)/Python/thread_pthread.h
 
 # Declare targets that aren't real files
 .PHONY: all build_all sharedmods oldsharedmods test quicktest

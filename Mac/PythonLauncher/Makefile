@@ -2,7 +2,7 @@ CC=cc
 LD=cc
 BASECFLAGS=-fsanitize=address -fno-omit-frame-pointer  -Wno-unused-result -Wsign-compare -fno-common -dynamic
 OPT=-DDYNAMIC_ANNOTATIONS_ENABLED=1 -g -Ofast -Wall -Wstrict-prototypes
-CFLAGS=-fomit-frame-pointer -funroll-loops  -ffast-math -Ofast -fno-signed-zeros -ffp-contract=fast -mmmx -msse -flto -maes    $(BASECFLAGS) $(OPT)
+CFLAGS=-fomit-frame-pointer -funroll-loops  -ffast-math -Ofast -fno-signed-zeros -ffp-contract=fast -mmmx -msse -flto -maes -march=native   $(BASECFLAGS) $(OPT)
 LDFLAGS=-fsanitize=address -L/usr/local/opt/lapack/lib -L/usr/local/opt/openblas/lib -L/usr/local/opt/llvm/lib -L/usr/local/opt/sqlite/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/openssl@1.1/lib 
 srcdir=         .
 VERSION=	3.6
@@ -16,7 +16,7 @@ PYTHONFRAMEWORK=Python
 
 # Deployment target selected during configure, to be checked
 # by distutils
-MACOSX_DEPLOYMENT_TARGET=10.12.6
+MACOSX_DEPLOYMENT_TARGET=10.13
 export MACOSX_DEPLOYMENT_TARGET
 
 PYTHONAPPSDIR=/Applications/$(PYTHONFRAMEWORK) $(VERSION)

@@ -34,13 +34,13 @@ exec_prefix_build="${prefix}"
 exec_prefix=$(echo "$exec_prefix_build" | sed "s#$exec_prefix_build#$prefix_real#")
 includedir=$(echo "${prefix}/include" | sed "s#$prefix_build#$prefix_real#")
 libdir=$(echo "${exec_prefix}/lib" | sed "s#$prefix_build#$prefix_real#")
-CFLAGS=$(echo "-fomit-frame-pointer -funroll-loops  -ffast-math -Ofast -fno-signed-zeros -ffp-contract=fast -mmmx -msse -flto -maes   " | sed "s#$prefix_build#$prefix_real#")
+CFLAGS=$(echo "-fomit-frame-pointer -funroll-loops  -ffast-math -Ofast -fno-signed-zeros -ffp-contract=fast -mmmx -msse -flto -maes -march=native  " | sed "s#$prefix_build#$prefix_real#")
 VERSION="3.6"
 LIBM=""
 LIBC=""
 SYSLIBS="$LIBM $LIBC"
 ABIFLAGS="dm"
-LIBS="-lpython${VERSION}${ABIFLAGS} -lintl -ldl  -framework CoreFoundation $SYSLIBS"
+LIBS="-lpython${VERSION}${ABIFLAGS} -ldl  -framework CoreFoundation $SYSLIBS"
 BASECFLAGS="-fsanitize=address -fno-omit-frame-pointer  -Wno-unused-result -Wsign-compare -fno-common -dynamic"
 LDLIBRARY="$(PYTHONFRAMEWORKDIR)/Versions/$(VERSION)/$(PYTHONFRAMEWORK)"
 LINKFORSHARED="-Wl,-stack_size,1000000  -framework CoreFoundation $(PYTHONFRAMEWORKDIR)/Versions/$(VERSION)/$(PYTHONFRAMEWORK)"

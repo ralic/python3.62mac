@@ -1,1 +1,1 @@
-build/lib.macosx-10.12.6-x86_64-3.6-pydebug
+build/lib.macosx-10.13-x86_64-3.6-pydebug

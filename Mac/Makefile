@@ -16,12 +16,12 @@ BUILDEXE=.exe
 BUILDPYTHON=$(builddir)/python$(BUILDEXE)
 DESTDIR=
 LDFLAGS=-fsanitize=address -L/usr/local/opt/lapack/lib -L/usr/local/opt/openblas/lib -L/usr/local/opt/llvm/lib -L/usr/local/opt/sqlite/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/openssl@1.1/lib 
-FRAMEWORKUNIXTOOLSPREFIX=/usr/local/Cellar/python3/3.6.2
+FRAMEWORKUNIXTOOLSPREFIX=/usr/local/Cellar/python3/3.6.2_1
 PYTHONFRAMEWORK=Python
 PYTHONFRAMEWORKIDENTIFIER=org.python.python
 LIPO_32BIT_FLAGS=
 CC=cc
-MACOSX_DEPLOYMENT_TARGET=10.12.6
+MACOSX_DEPLOYMENT_TARGET=10.13
 export MACOSX_DEPLOYMENT_TARGET
 
 

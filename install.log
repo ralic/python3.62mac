@@ -1,0 +1,40 @@
+cd Mac && gmake pythonw
+Creating directory /Library/Frameworks/Python.framework/Versions/3.6/Resources/English.lproj
+Creating directory /Library/Frameworks/Python.framework/Versions/3.6/include
+Creating directory /Library/Frameworks/Python.framework/Versions/3.6
+Creating directory /Library/Frameworks/Python.framework/Versions/3.6/lib
+Creating directory /Library/Frameworks/Python.framework/Versions/3.6/include
+Creating directory /Library/Frameworks/Python.framework/Versions/3.6/lib
+Creating directory /Library/Frameworks/Python.framework/Versions/3.6/include/python3.6dm
+Creating directory /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6
+Creating directory /Library/Frameworks/Python.framework/Versions/3.6/include/python3.6dm
+Creating directory /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/lib-dynload
+gmake[1]: Entering directory '/Volumes/data/WorkSpace/python3.62mac/Mac'
+cc -fsanitize=address -L/usr/local/opt/lapack/lib -L/usr/local/opt/openblas/lib -L/usr/local/opt/llvm/lib -L/usr/local/opt/sqlite/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/openssl@1.1/lib  -DPYTHONFRAMEWORK='"Python"' -o pythonw \
+	./Tools/pythonw.c -I.. -I./../Include \
+	../Python.framework/Versions/3.6/Python
+gmake[1]: Leaving directory '/Volumes/data/WorkSpace/python3.62mac/Mac'
+running build
+running build_ext
+
+Python build finished successfully!
+The necessary bits to build these optional modules were not found:
+ossaudiodev           spwd                                     
+To find the necessary bits, look in setup.py in detect_modules() for the module's name.
+
+The following modules found by detect_modules() in setup.py, have been
+built by the Makefile instead, as configured by the Setup files:
+atexit                pwd                   time               
+running build_scripts
+copying and adjusting /Volumes/data/WorkSpace/python3.62mac/Tools/scripts/pydoc3 -> build/scripts-3.6
+copying and adjusting /Volumes/data/WorkSpace/python3.62mac/Tools/scripts/idle3 -> build/scripts-3.6
+copying and adjusting /Volumes/data/WorkSpace/python3.62mac/Tools/scripts/2to3 -> build/scripts-3.6
+copying and adjusting /Volumes/data/WorkSpace/python3.62mac/Tools/scripts/pyvenv -> build/scripts-3.6
+changing mode of build/scripts-3.6/pydoc3 from 600 to 755
+changing mode of build/scripts-3.6/idle3 from 600 to 755
+changing mode of build/scripts-3.6/2to3 from 600 to 755
+changing mode of build/scripts-3.6/pyvenv from 600 to 755
+renaming build/scripts-3.6/pydoc3 to build/scripts-3.6/pydoc3.6
+renaming build/scripts-3.6/idle3 to build/scripts-3.6/idle3.6
+renaming build/scripts-3.6/2to3 to build/scripts-3.6/2to3-3.6
+renaming build/scripts-3.6/pyvenv to build/scripts-3.6/pyvenv-3.6
