@@ -1,15 +1,15 @@
-CC=cc
-LD=cc
-BASECFLAGS=-fsanitize=address -fno-omit-frame-pointer  -Wno-unused-result -Wsign-compare -fno-common -dynamic
+CC=mpicc
+LD=mpicc
+BASECFLAGS= -Wsign-compare -fno-common -dynamic
 OPT=-DDYNAMIC_ANNOTATIONS_ENABLED=1 -g -Ofast -Wall -Wstrict-prototypes
-CFLAGS=-fomit-frame-pointer -funroll-loops  -ffast-math -Ofast -fno-signed-zeros -ffp-contract=fast -mmmx -msse -flto -maes -march=native   $(BASECFLAGS) $(OPT)
-LDFLAGS=-fsanitize=address -L/usr/local/opt/lapack/lib -L/usr/local/opt/openblas/lib -L/usr/local/opt/llvm/lib -L/usr/local/opt/sqlite/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/openssl@1.1/lib 
+CFLAGS=-fomit-frame-pointer -funroll-loops  -ffast-math -Ofast -fno-signed-zeros -ffp-contract=fast -mmmx -msse -flto -maes -march=native   -march=native $(BASECFLAGS) $(OPT)
+LDFLAGS=-L/usr/local/opt/lapack/lib -L/usr/local/opt/openblas/lib -L/usr/local/opt/llvm/lib -L/usr/local/opt/sqlite/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/openssl@1.1/lib 
 srcdir=         .
 VERSION=	3.6
 UNIVERSALSDK=
 builddir=	../..
 
-RUNSHARED=      DYLD_FRAMEWORK_PATH=/Users/dojo/work/python3.62mac
+RUNSHARED=      DYLD_FRAMEWORK_PATH=/Volumes/data/WorkSpace/python3.62mac
 BUILDEXE=       .exe
 BUILDPYTHON=    $(builddir)/python$(BUILDEXE)
 PYTHONFRAMEWORK=Python

@@ -8,19 +8,19 @@ LDVERSION=$(VERSION)$(ABIFLAGS)
 ENSUREPIP=upgrade
 builddir = ..
 srcdir=.
-prefix=/Library/Frameworks/Python.framework/Versions/3.6
+prefix=/usr/local/Cellar/python3/3.6.2_1/Frameworks/Python.framework/Versions/3.6
 exec_prefix=${prefix}
 LIBDEST=$(prefix)/lib/python$(VERSION)
-RUNSHARED=DYLD_FRAMEWORK_PATH=/Users/dojo/work/python3.62mac
+RUNSHARED=DYLD_FRAMEWORK_PATH=/Volumes/data/WorkSpace/python3.62mac
 BUILDEXE=.exe
 BUILDPYTHON=$(builddir)/python$(BUILDEXE)
 DESTDIR=
-LDFLAGS=-fsanitize=address -L/usr/local/opt/lapack/lib -L/usr/local/opt/openblas/lib -L/usr/local/opt/llvm/lib -L/usr/local/opt/sqlite/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/openssl@1.1/lib 
+LDFLAGS=-L/usr/local/opt/lapack/lib -L/usr/local/opt/openblas/lib -L/usr/local/opt/llvm/lib -L/usr/local/opt/sqlite/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/openssl@1.1/lib 
 FRAMEWORKUNIXTOOLSPREFIX=/usr/local/Cellar/python3/3.6.2_1
 PYTHONFRAMEWORK=Python
 PYTHONFRAMEWORKIDENTIFIER=org.python.python
 LIPO_32BIT_FLAGS=
-CC=cc
+CC=mpicc
 MACOSX_DEPLOYMENT_TARGET=10.13
 export MACOSX_DEPLOYMENT_TARGET
 

@@ -24,7 +24,7 @@ installed_prefix ()
     echo $RESULT
 }
 
-prefix_build="/Library/Frameworks/Python.framework/Versions/3.6"
+prefix_build="/usr/local/Cellar/python3/3.6.2_1/Frameworks/Python.framework/Versions/3.6"
 prefix_real=$(installed_prefix "$0")
 
 # Use sed to fix paths from their built-to locations to their installed-to
@@ -34,14 +34,14 @@ exec_prefix_build="${prefix}"
 exec_prefix=$(echo "$exec_prefix_build" | sed "s#$exec_prefix_build#$prefix_real#")
 includedir=$(echo "${prefix}/include" | sed "s#$prefix_build#$prefix_real#")
 libdir=$(echo "${exec_prefix}/lib" | sed "s#$prefix_build#$prefix_real#")
-CFLAGS=$(echo "-fomit-frame-pointer -funroll-loops  -ffast-math -Ofast -fno-signed-zeros -ffp-contract=fast -mmmx -msse -flto -maes -march=native  " | sed "s#$prefix_build#$prefix_real#")
+CFLAGS=$(echo "-fomit-frame-pointer -funroll-loops  -ffast-math -Ofast -fno-signed-zeros -ffp-contract=fast -mmmx -msse -flto -maes -march=native   -march=native" | sed "s#$prefix_build#$prefix_real#")
 VERSION="3.6"
 LIBM=""
 LIBC=""
 SYSLIBS="$LIBM $LIBC"
 ABIFLAGS="dm"
 LIBS="-lpython${VERSION}${ABIFLAGS} -ldl  -framework CoreFoundation $SYSLIBS"
-BASECFLAGS="-fsanitize=address -fno-omit-frame-pointer  -Wno-unused-result -Wsign-compare -fno-common -dynamic"
+BASECFLAGS=" -Wsign-compare -fno-common -dynamic"
 LDLIBRARY="$(PYTHONFRAMEWORKDIR)/Versions/$(VERSION)/$(PYTHONFRAMEWORK)"
 LINKFORSHARED="-Wl,-stack_size,1000000  -framework CoreFoundation $(PYTHONFRAMEWORKDIR)/Versions/$(VERSION)/$(PYTHONFRAMEWORK)"
 OPT="-DDYNAMIC_ANNOTATIONS_ENABLED=1 -g -Ofast -Wall -Wstrict-prototypes"

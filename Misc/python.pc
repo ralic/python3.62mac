@@ -1,5 +1,5 @@
 # See: man pkg-config
-prefix=/Library/Frameworks/Python.framework/Versions/3.6
+prefix=/usr/local/Cellar/python3/3.6.2_1/Frameworks/Python.framework/Versions/3.6
 exec_prefix=${prefix}
 libdir=${exec_prefix}/lib
 includedir=${prefix}/include
