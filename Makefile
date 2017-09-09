@@ -29,12 +29,12 @@ MODLIBS=        $(LOCALMODLIBS) $(BASEMODLIBS)
 VERSION=	3.6
 srcdir=		.
 
-abs_srcdir=	/Volumes/data/WorkSpace/python3.62mac
-abs_builddir=	/Volumes/data/WorkSpace/python3.62mac
+abs_srcdir=	/Users/dojo/work/zspecial/python3.62mac
+abs_builddir=	/Users/dojo/work/zspecial/python3.62mac
 
 
 CC=		mpicc
-CXX=		g++
+CXX=		clang++-
 MAINCC=		$(CC)
 LINKCC=		$(PURIFY) $(MAINCC)
 AR=		ar
@@ -45,7 +45,7 @@ LDVERSION=	$(VERSION)$(ABIFLAGS)
 GITVERSION=	git -C $(srcdir) rev-parse --short HEAD
 GITTAG=		git -C $(srcdir) describe --all --always --dirty
 GITBRANCH=	git -C $(srcdir) name-rev --name-only HEAD
-PGO_PROF_GEN_FLAG=
+PGO_PROF_GEN_FLAG=-prof-gen
 PGO_PROF_USE_FLAG=-prof-use
 LLVM_PROF_MERGER=true
 LLVM_PROF_FILE=
@@ -81,13 +81,13 @@ MAKESETUP=      $(srcdir)/Modules/makesetup
 OPT=		-DDYNAMIC_ANNOTATIONS_ENABLED=1 -g -Ofast -Wall -Wstrict-prototypes
 BASECFLAGS=	 -Wsign-compare -fno-common -dynamic
 BASECPPFLAGS=	
-CONFIGURE_CFLAGS=	-fomit-frame-pointer -funroll-loops  -ffast-math -Ofast -fno-signed-zeros -ffp-contract=fast -mmmx -msse -flto -maes -march=native   -march=native
+CONFIGURE_CFLAGS=	-fomit-frame-pointer -funroll-loops  -ffast-math -Ofast -fno-signed-zeros -ffp-contract=fast -mmmx -msse -flto -maes -march=native  -march=native
 # CFLAGS_NODIST is used for building the interpreter and stdlib C extensions.
 # Use it when a compiler flag should _not_ be part of the distutils CFLAGS
 # once Python is installed (Issue #21121).
-CONFIGURE_CFLAGS_NODIST= -std=c99 -Wextra -Wno-unused-parameter -Wno-missing-field-initializers 
-CONFIGURE_CPPFLAGS=	-I/usr/include/ -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include
-CONFIGURE_LDFLAGS=	-L/usr/local/opt/lapack/lib -L/usr/local/opt/openblas/lib -L/usr/local/opt/llvm/lib -L/usr/local/opt/sqlite/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/openssl@1.1/lib 
+CONFIGURE_CFLAGS_NODIST= -std=c99 -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -fp-model strict
+CONFIGURE_CPPFLAGS=	-I/usr/local/opt/lapack/include -I/usr/local/opt/openblas/include -I/usr/local/opt/llvm/include -I/usr/local/opt/sqlite/include -I/usr/local/opt/readline/include -I/usr/local/opt/portaudio/include -I/usr/local/opt/openssl@1.1/include 
+CONFIGURE_LDFLAGS=	-L/usr/local/opt/lapack/lib -L/usr/local/opt/openblas/lib -L/usr/local/opt/llvm/lib -L/usr/local/opt/sqlite/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/portaudio/lib -L/usr/local/opt/openssl@1.1/lib 
 # Avoid assigning CFLAGS, LDFLAGS, etc. so users can use them on the
 # command line to append to these values without stomping the pre-set
 # values.
@@ -177,7 +177,7 @@ LIPO_32BIT_FLAGS=
 OTHER_LIBTOOL_OPT=
 
 # Environment to run shared python without installed libraries
-RUNSHARED=       DYLD_FRAMEWORK_PATH=/Volumes/data/WorkSpace/python3.62mac
+RUNSHARED=       DYLD_FRAMEWORK_PATH=/Users/dojo/work/zspecial/python3.62mac
 
 # ensurepip options
 ENSUREPIP=      upgrade
@@ -189,7 +189,7 @@ EXEMODE=	755
 FILEMODE=	644
 
 # configure script arguments
-CONFIG_ARGS=	 '--enable-ipv6' '--enable-optimizations' '--enable-loadable-sqlite-extensions' '--with-ensurepip=upgrade' '--with-system-expat' '--with-system-ffi' '--with-threads' '--with-valgrind' '--with-lto' '--with-pydebug' '--enable-profiling' '--with-assertions' '--without-gcc' '--datarootdir=/usr/local/Cellar/python3/3.6.2_1/share' '--datadir=/usr/local/Cellar/python3/3.6.2_1/share' '--enable-framework=/usr/local/Cellar/python3/3.6.2_1/Frameworks' '--prefix=/usr/local/Cellar/python3/3.6.2_1' 'CC=mpicc' 'CFLAGS=-fomit-frame-pointer -funroll-loops  -ffast-math -Ofast -fno-signed-zeros -ffp-contract=fast -mmmx -msse -flto -maes -march=native   -march=native' 'LDFLAGS=-L/usr/local/opt/lapack/lib -L/usr/local/opt/openblas/lib -L/usr/local/opt/llvm/lib -L/usr/local/opt/sqlite/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/openssl@1.1/lib ' 'CPPFLAGS=-I/usr/include/ -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include' 'CPP=cc -E'
+CONFIG_ARGS=	 '--enable-ipv6' '--enable-optimizations' '--enable-loadable-sqlite-extensions' '--with-ensurepip=upgrade' '--with-system-expat' '--with-system-ffi' '--with-threads' '--with-valgrind' '--with-lto' '--with-pydebug' '--enable-profiling' '--with-assertions' '--without-gcc' '--datarootdir=/usr/local/Cellar/python3/3.6.2_1/share' '--datadir=/usr/local/Cellar/python3/3.6.2_1/share' '--enable-framework=/usr/local/Cellar/python3/3.6.2_1/Frameworks' '--prefix=/usr/local/Cellar/python3/3.6.2_1' 'CC=mpicc' 'CFLAGS=-fomit-frame-pointer -funroll-loops  -ffast-math -Ofast -fno-signed-zeros -ffp-contract=fast -mmmx -msse -flto -maes -march=native  -march=native' 'LDFLAGS=-L/usr/local/opt/lapack/lib -L/usr/local/opt/openblas/lib -L/usr/local/opt/llvm/lib -L/usr/local/opt/sqlite/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/portaudio/lib -L/usr/local/opt/openssl@1.1/lib ' 'CPPFLAGS=-I/usr/local/opt/lapack/include -I/usr/local/opt/openblas/include -I/usr/local/opt/llvm/include -I/usr/local/opt/sqlite/include -I/usr/local/opt/readline/include -I/usr/local/opt/portaudio/include -I/usr/local/opt/openssl@1.1/include ' 'CPP=clang-5.0 -E'
 
 
 # Subdirectories with code

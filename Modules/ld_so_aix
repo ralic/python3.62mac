@@ -70,7 +70,7 @@ if test ! -n "$*"; then
 fi
 
 makexp=`dirname $0`/makexp_aix
-test -x "${makexp}" || makexp="/Volumes/data/WorkSpace/python3.62mac/Modules/makexp_aix"
+test -x "${makexp}" || makexp="/Users/dojo/work/zspecial/python3.62mac/Modules/makexp_aix"
 
 # Check for existence of compiler.
 CC=$1; shift

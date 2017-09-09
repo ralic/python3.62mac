@@ -1,0 +1,49 @@
+Building with support for profile generation:
+gmake clean
+gmake[1]: Entering directory '/Volumes/data/WorkSpace/zspecial/python3.62mac'
+find . -depth -name '__pycache__' -exec rm -rf {} ';'
+find . -name '*.py[co]' -exec rm -f {} ';'
+find . -name '*.[oa]' -exec rm -f {} ';'
+find . -name '*.s[ol]' -exec rm -f {} ';'
+find . -name '*.so.[0-9]*.[0-9]*' -exec rm -f {} ';'
+find build -name 'fficonfig.h' -exec rm -f {} ';' || true
+find build -name '*.py' -exec rm -f {} ';' || true
+find build -name '*.py[co]' -exec rm -f {} ';' || true
+rm -f pybuilddir.txt
+rm -f Lib/lib2to3/*Grammar*.pickle
+rm -f Programs/_testembed Programs/_freeze_importlib
+find build -type f -a ! -name '*.gc??' -exec rm -f {} ';'
+rm -f Include/pydtrace_probes.h
+gmake[1]: Leaving directory '/Volumes/data/WorkSpace/zspecial/python3.62mac'
+gmake profile-removal
+gmake[1]: Entering directory '/Volumes/data/WorkSpace/zspecial/python3.62mac'
+find . -name '*.gc??' -exec rm -f {} ';'
+find . -name '*.profclang?' -exec rm -f {} ';'
+find . -name '*.dyn' -exec rm -f {} ';'
+rm -f /Users/dojo/work/zspecial/python3.62mac/coverage.info
+rm -rf /Users/dojo/work/zspecial/python3.62mac/lcov-report
+gmake[1]: Leaving directory '/Volumes/data/WorkSpace/zspecial/python3.62mac'
+gmake build_all_generate_profile
+gmake[1]: Entering directory '/Volumes/data/WorkSpace/zspecial/python3.62mac'
+gmake build_all CFLAGS_NODIST="-fomit-frame-pointer -funroll-loops  -ffast-math -Ofast -fno-signed-zeros -ffp-contract=fast -mmmx -msse -flto -maes -march=native  -march=native -fprofile-instr-generate -flto -Wl,-export_dynamic" LDFLAGS="-L/usr/local/opt/lapack/lib -L/usr/local/opt/openblas/lib -L/usr/local/opt/llvm/lib -L/usr/local/opt/sqlite/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/portaudio/lib -L/usr/local/opt/openssl@1.1/lib  -fprofile-instr-generate -flto -Wl,-export_dynamic" LIBS="-ldl  -framework CoreFoundation"
+gmake[2]: Entering directory '/Volumes/data/WorkSpace/zspecial/python3.62mac'
+/usr/local/opt/coreutils/libexec/gnubin/mkdir -p Include
+/usr/sbin/dtrace  -o Include/pydtrace_probes.h -h -s Include/pydtrace.d
+gcc -c  -Wno-unused-result -Wsign-compare -fno-common -dynamic -DDYNAMIC_ANNOTATIONS_ENABLED=1 -g -Og -Wall -Wstrict-prototypes -fomit-frame-pointer -funroll-loops  -ffast-math -Ofast -fno-signed-zeros -ffp-contract=fast -mmmx -msse -flto -maes -march=native  -march=native -fomit-frame-pointer -funroll-loops  -ffast-math -Ofast -fno-signed-zeros -ffp-contract=fast -mmmx -msse -flto -maes -march=native  -march=native  -std=c99 -Wextra -Wno-unused-result -Wno-unused-parameter -Wno-missing-field-initializers -fomit-frame-pointer -funroll-loops  -ffast-math -Ofast -fno-signed-zeros -ffp-contract=fast -mmmx -msse -flto -maes -march=native  -march=native -fprofile-instr-generate -flto -Wl,-export_dynamic  -I. -I./Include -I/usr/local/opt/lapack/include -I/usr/local/opt/openblas/include -I/usr/local/opt/llvm/include -I/usr/local/opt/sqlite/include -I/usr/local/opt/readline/include -I/usr/local/opt/portaudio/include -I/usr/local/opt/openssl@1.1/include  -I/usr/local/opt/lapack/include -I/usr/local/opt/openblas/include -I/usr/local/opt/llvm/include -I/usr/local/opt/sqlite/include -I/usr/local/opt/readline/include -I/usr/local/opt/portaudio/include -I/usr/local/opt/openssl@1.1/include   -DPy_BUILD_CORE -o Modules/_math.o Modules/_math.c
+gcc -c -Wno-unused-result -Wsign-compare -fno-common -dynamic -DDYNAMIC_ANNOTATIONS_ENABLED=1 -g -Og -Wall -Wstrict-prototypes -fomit-frame-pointer -funroll-loops  -ffast-math -Ofast -fno-signed-zeros -ffp-contract=fast -mmmx -msse -flto -maes -march=native  -march=native -fomit-frame-pointer -funroll-loops  -ffast-math -Ofast -fno-signed-zeros -ffp-contract=fast -mmmx -msse -flto -maes -march=native  -march=native  -std=c99 -Wextra -Wno-unused-result -Wno-unused-parameter -Wno-missing-field-initializers -fomit-frame-pointer -funroll-loops  -ffast-math -Ofast -fno-signed-zeros -ffp-contract=fast -mmmx -msse -flto -maes -march=native  -march=native -fprofile-instr-generate -flto -Wl,-export_dynamic  -I. -I./Include -I/usr/local/opt/lapack/include -I/usr/local/opt/openblas/include -I/usr/local/opt/llvm/include -I/usr/local/opt/sqlite/include -I/usr/local/opt/readline/include -I/usr/local/opt/portaudio/include -I/usr/local/opt/openssl@1.1/include  -I/usr/local/opt/lapack/include -I/usr/local/opt/openblas/include -I/usr/local/opt/llvm/include -I/usr/local/opt/sqlite/include -I/usr/local/opt/readline/include -I/usr/local/opt/portaudio/include -I/usr/local/opt/openssl@1.1/include   -DPy_BUILD_CORE -o Programs/_testembed.o ./Programs/_testembed.c
+: sed in-place edit with POSIX-only tools
+# Substitution happens here, as the completely-expanded BINDIR
+sed 's/PYTHON_/PyDTrace_/' Include/pydtrace_probes.h > Include/pydtrace_probes.h.tmp
+# is not available in configure
+sed -e "s,@EXENAME@,/usr/local/Cellar/python3/3.6.2_1/Frameworks/Python.framework/Versions/3.6/bin/python3.6dm," < ./Misc/python-config.in >python-config.py
+mv Include/pydtrace_probes.h.tmp Include/pydtrace_probes.h
+# Replace makefile compat. variable references with shell script compat. ones;  -> 
+LC_ALL=C sed -e 's,\$(\([A-Za-z0-9_]*\)),\$\{\1\},g' < Misc/python-config.sh >python-config
+# On Darwin, always use the python version of the script, the shell
+# version doesn't use the compiler customizations that are provided
+# in python (_osx_support.py).
+if test `uname -s` = Darwin; then \
+	cp python-config.py python-config; \
+fi
+gmake[2]: Leaving directory '/Volumes/data/WorkSpace/zspecial/python3.62mac'
+gmake[1]: Leaving directory '/Volumes/data/WorkSpace/zspecial/python3.62mac'
