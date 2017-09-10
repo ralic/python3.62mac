@@ -1,9 +1,10 @@
 ASAN_OPTIONS=detect_leaks=0:detect_odr_violation=0
 CC=mpicc
 PYVERSION=3.6.2_1
-./configure --enable-ipv6  --enable-optimizations --enable-loadable-sqlite-extensions --with-ensurepip=upgrade --with-system-expat --with-system-ffi  --enable-profiling  --with-threads --with-valgrind --with-lto --with-assertions --with-pydebug --with-assertions --without-gcc  --datarootdir=/usr/local/Cellar/python3/$PYVERSION/share --datadir=/usr/local/Cellar/python3/$PYVERSION/share --enable-framework=/usr/local/Cellar/python3/$PYVERSION/Frameworks --prefix=/usr/local/Cellar/python3/$PYVERSION
+./configure --enable-ipv6  --enable-optimizations --enable-loadable-sqlite-extensions --with-ensurepip=upgrade   --with-threads --with-valgrind --with-lto --with-assertions --with-pydebug --with-assertions --without-gcc --without-icc  --datarootdir=/usr/local/Cellar/python3/$PYVERSION/share --datadir=/usr/local/Cellar/python3/$PYVERSION/share --enable-framework=/usr/local/Cellar/python3/$PYVERSION/Frameworks --prefix=/usr/local/Cellar/python3/$PYVERSION
 
-##  --with-dtrace
+##  --with-dtrace  --enable-profiling
+## --with-system-expat --with-system-ffi 
 ## --with-address-sanitizer  ## not for high-sierra
 ##  ## not for high-sierra
 ## --with-universal-archs=all

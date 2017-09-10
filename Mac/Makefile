@@ -15,7 +15,7 @@ RUNSHARED=DYLD_FRAMEWORK_PATH=/Users/dojo/work/zspecial/python3.62mac
 BUILDEXE=.exe
 BUILDPYTHON=$(builddir)/python$(BUILDEXE)
 DESTDIR=
-LDFLAGS=-L/usr/local/opt/lapack/lib -L/usr/local/opt/openblas/lib -L/usr/local/opt/llvm/lib -L/usr/local/opt/sqlite/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/portaudio/lib -L/usr/local/opt/openssl@1.1/lib 
+LDFLAGS=-L/usr/local/opt/lapack/lib -L/usr/local/opt/openblas/lib -L/usr/local/opt/llvm/lib -L/usr/local/opt/sqlite/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/openssl@1.1/lib 
 FRAMEWORKUNIXTOOLSPREFIX=/usr/local/Cellar/python3/3.6.2_1
 PYTHONFRAMEWORK=Python
 PYTHONFRAMEWORKIDENTIFIER=org.python.python
